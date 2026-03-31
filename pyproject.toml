@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "shortcutpy"
+dynamic = ["version"]
+description = "Compile a Python-shaped DSL into Apple Shortcuts"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "Apache-2.0" }
+authors = [{ name = "shortcutpy contributors" }]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+]
+
+dependencies = []
+
+[project.scripts]
+shortcutpy = "shortcutpy.cli:main"
+
+[project.optional-dependencies]
+dev = [
+  "fastship",
+  "build",
+  "pytest",
+  "twine",
+]
+
+[project.urls]
+Homepage = "https://github.com/AnswerDotAI/shortcutpy"
+
+[tool.setuptools]
+packages = ["shortcutpy"]
+
+[tool.setuptools.dynamic]
+version = { attr = "shortcutpy.__version__" }
+
+[tool.setuptools.package-data]
+shortcutpy = ["*.pyi", "py.typed"]
