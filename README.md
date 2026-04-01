@@ -4,14 +4,6 @@ Compile a small Python-shaped DSL into Apple Shortcuts on macOS.
 
 Shoutout to Cherri for inspiration and ideas.
 
-## Status
-
-- one file = one shortcut
-- one `@shortcut`-decorated function
-- assignments, action calls, `if/else`, `for item in items`, `for _ in range(n)`, and `return`
-- literals, f-strings, list literals, and dict literals
-- native signing via `shortcuts sign`
-
 ## Example
 
 ```python
@@ -21,16 +13,20 @@ from shortcutpy.dsl import shortcut, ask_for_text, choose_from_menu, show_result
 def greeting():
     name = ask_for_text("What is your name?")
     tone = choose_from_menu("Tone", ["formal", "casual"])
-
-    if tone == "formal":
-        message = f"Good day, {name}."
-    else:
-        message = f"Hey {name}!"
-
+    if tone == "formal": message = f"Good day, {name}."
+    else: message = f"Hey {name}!"
     show_result(message)
 ```
 
 With bare `@shortcut`, the shortcut name defaults from the function name, so `greeting` becomes `Greeting` and `get_current_weather` becomes `Get Current Weather`.
+
+## Status
+
+- one file = one shortcut
+- one `@shortcut`-decorated function
+- assignments, action calls, `if/else`, `for item in items`, `for _ in range(n)`, and `return`
+- literals, f-strings, list literals, and dict literals
+- native signing via `shortcuts sign`
 
 ## Usage
 
