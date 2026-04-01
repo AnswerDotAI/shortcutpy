@@ -6,8 +6,6 @@ Shoutout to Cherri for inspiration and ideas.
 
 ## Status
 
-This is the MVP compiler:
-
 - one file = one shortcut
 - one `@shortcut`-decorated function
 - assignments, action calls, `if/else`, `for item in items`, `for _ in range(n)`, and `return`
@@ -137,7 +135,7 @@ Not currently supported:
 
 ## Examples
 
-See [examples/README.md](/Users/jhoward/git/shortcutpy/examples/README.md) and the files in [examples](/Users/jhoward/git/shortcutpy/examples).
+See [examples/README.md](examples/README.md) and the files in [examples](examples).
 
 ## Current DSL Surface
 
@@ -154,7 +152,7 @@ See [examples/README.md](/Users/jhoward/git/shortcutpy/examples/README.md) and t
 
 It also exposes a generated catalog of Shortcuts actions sourced from Cherri's action definitions, including wrappers like `alert`, `show_notification`, `toggle_dnd`, `combine_images`, `resize_image_by_percent`, `get_current_weather`, and `save_file_to_path`.
 
-For the exact generated names and typed signatures, see [shortcutpy/dsl.pyi](/Users/jhoward/git/shortcutpy/shortcutpy/dsl.pyi).
+For the exact generated names and typed signatures, see [shortcutpy/dsl.pyi](shortcutpy/dsl.pyi).
 
 `glyph=` accepts a small built-in name map or an integer glyph id. `color=` accepts the standard Shortcuts color names or an integer color value.
 
@@ -164,4 +162,4 @@ For the exact generated names and typed signatures, see [shortcutpy/dsl.pyi](/Us
 pip install -e .[dev]
 ```
 
-For internals, release steps, and the signing/debugging notes, see [DEV.md](/Users/jhoward/git/shortcutpy/DEV.md).
+For internals, release steps, and the signing/debugging notes, see [DEV.md](DEV.md).

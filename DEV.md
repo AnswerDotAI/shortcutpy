@@ -9,13 +9,13 @@
 
 ## Key Files
 
-- [shortcutpy/compiler.py](/Users/jhoward/git/shortcutpy/shortcutpy/compiler.py): parser/lowerer/emitter/signing path
-- [shortcutpy/action_catalog.py](/Users/jhoward/git/shortcutpy/shortcutpy/action_catalog.py): generated action registry from Cherri
-- [shortcutpy/dsl.py](/Users/jhoward/git/shortcutpy/shortcutpy/dsl.py): runtime stubs for the DSL surface
-- [shortcutpy/dsl.pyi](/Users/jhoward/git/shortcutpy/shortcutpy/dsl.pyi): typing for the DSL
-- [shortcutpy/cli.py](/Users/jhoward/git/shortcutpy/shortcutpy/cli.py): `shortcutpy ...`
-- [scripts/sync_cherri_actions.py](/Users/jhoward/git/shortcutpy/scripts/sync_cherri_actions.py): regenerate the Cherri-derived action catalog and `.pyi`
-- [tests/test_compiler.py](/Users/jhoward/git/shortcutpy/tests/test_compiler.py): focused compiler/signing tests
+- [shortcutpy/compiler.py](shortcutpy/compiler.py): parser/lowerer/emitter/signing path
+- [shortcutpy/action_catalog.py](shortcutpy/action_catalog.py): generated action registry from Cherri
+- [shortcutpy/dsl.py](shortcutpy/dsl.py): runtime stubs for the DSL surface
+- [shortcutpy/dsl.pyi](shortcutpy/dsl.pyi): typing for the DSL
+- [shortcutpy/cli.py](shortcutpy/cli.py): `shortcutpy ...`
+- [scripts/sync_cherri_actions.py](scripts/sync_cherri_actions.py): regenerate the Cherri-derived action catalog and `.pyi`
+- [tests/test_compiler.py](tests/test_compiler.py): focused compiler/signing tests
 
 ## Compiler Shape
 
@@ -43,8 +43,8 @@ This keeps AST weirdness out of emission. If you're adding syntax, it usually be
 Most of `shortcutpy.dsl` is now generated from Cherri's action catalog.
 
 - `scripts/sync_cherri_actions.py` parses `cherri/actions/*.cherri`
-- it writes [shortcutpy/action_catalog.py](/Users/jhoward/git/shortcutpy/shortcutpy/action_catalog.py)
-- it also regenerates [shortcutpy/dsl.pyi](/Users/jhoward/git/shortcutpy/shortcutpy/dsl.pyi)
+- it writes [shortcutpy/action_catalog.py](shortcutpy/action_catalog.py)
+- it also regenerates [shortcutpy/dsl.pyi](shortcutpy/dsl.pyi)
 
 `dsl.py` creates runtime stubs from that catalog, and `compiler.py` uses the same registry to validate calls and map Python arguments to Shortcut parameter keys.
 
@@ -65,10 +65,10 @@ If signing fails while hacking from Codex, the first thing to suspect is sandbox
 
 For most new actions, the loop is:
 
-1. Update or extend [scripts/sync_cherri_actions.py](/Users/jhoward/git/shortcutpy/scripts/sync_cherri_actions.py) if the Cherri syntax shape changed.
+1. Update or extend [scripts/sync_cherri_actions.py](scripts/sync_cherri_actions.py) if the Cherri syntax shape changed.
 2. Regenerate the catalog and stubs.
 3. If the action needs special lowering beyond the generated path, add that in `compiler.py`.
-4. Add a small test in [tests/test_generated_actions.py](/Users/jhoward/git/shortcutpy/tests/test_generated_actions.py) or [tests/test_compiler.py](/Users/jhoward/git/shortcutpy/tests/test_compiler.py).
+4. Add a small test in [tests/test_generated_actions.py](tests/test_generated_actions.py) or [tests/test_compiler.py](tests/test_compiler.py).
 
 Keep it direct. Most actions should flow through the generated catalog without any hand-written compiler code.
 
@@ -100,7 +100,7 @@ shortcutpy -o path/to/file.py
 
 ## Versioning And Release
 
-Version lives in [shortcutpy/__init__.py](/Users/jhoward/git/shortcutpy/shortcutpy/__init__.py) as `__version__`.
+Version lives in [shortcutpy/__init__.py](shortcutpy/__init__.py) as `__version__`.
 
 Bump it with:
 
