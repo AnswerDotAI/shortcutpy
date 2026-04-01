@@ -1,4 +1,4 @@
-from shortcutpy.dsl import get_files, resize_image, save_file, shortcut
+from shortcutpy.dsl import *
 
 
 @shortcut(name="Resize Images", color="lightblue", glyph="image")

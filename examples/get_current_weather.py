@@ -1,4 +1,4 @@
-from shortcutpy.dsl import get_current_weather, shortcut, show_result
+from shortcutpy.dsl import *
 
 
 @shortcut(name="Current Weather", color="blue")

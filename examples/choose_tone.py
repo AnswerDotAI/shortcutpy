@@ -1,4 +1,4 @@
-from shortcutpy.dsl import ask_for_text, choose_from_menu, shortcut
+from shortcutpy.dsl import *
 
 
 @shortcut(name="Choose Tone", color="green", glyph="chatBubble")

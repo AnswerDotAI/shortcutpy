@@ -1,0 +1,352 @@
+Name: timestamp discord
+Action Count: 40
+Has Shortcut Input Variables: True
+Input Classes: ['WFDateContentItem', 'WFStringContentItem']
+Import Questions: []
+
+Actions:
+
+01. is.workflow.actions.comment
+{
+  "WFCommentActionText": "This shortcut generates Discord time codes that, when inserted in a message, show the local date and/or time to each user in a variety of formats — @atnbueno (2021-09-17) \n\n- Source: https://discord.com/developers/docs/reference#message-formatting-timestamp-styles\n- Input can be from shared text, the clipboard, or the current date/time (in that order). It can include parseable expressions like “10am pacific”, and it will be offered as initial value (already converted to local time) in the date/time picker.\n\nv1.1.0 (2021-09-18) Added multilingual support. Improved style menu.\n\nRoutineHubUpdate\n\nCurrent Version: \"1.1.1\"\nRoutineHub ID: \"10154\"\n\nRoutineHubUpdate"
+}
+
+02. is.workflow.actions.dictionary
+{
+  "UUID": "14DF4627-E6CB-44D0-94A0-3BC094E956E0"
+}
+
+03. is.workflow.actions.setvariable
+{
+  "WFVariableName": "Configuration"
+}
+
+04. is.workflow.actions.url
+{
+  "UUID": "9ECDF648-F7C1-42E4-9E90-078BA547F73D"
+}
+
+05. is.workflow.actions.gettypeaction
+{
+  "CustomOutputName": "Detected Language",
+  "UUID": "B424CCB4-E4AB-4D0D-871E-AE19183EB88C"
+}
+
+06. is.workflow.actions.getvalueforkey
+{
+  "WFDictionaryKey": {
+    "Value": {
+      "string": "￼",
+      "attachmentsByRange": {
+        "{0, 1}": {
+          "Type": "ActionOutput",
+          "OutputName": "Detected Language",
+          "OutputUUID": "B424CCB4-E4AB-4D0D-871E-AE19183EB88C",
+          "Aggrandizements": [
+            {
+              "Type": "WFCoercionVariableAggrandizement",
+              "CoercionItemClass": "WFStringContentItem"
+            }
+          ]
+        }
+      }
+    },
+    "WFSerializationType": "WFTextTokenString"
+  },
+  "UUID": "B479B75A-3080-4C7A-93A1-774D7638769A"
+}
+
+07. is.workflow.actions.conditional
+{
+  "WFControlFlowMode": 0
+}
+
+08. is.workflow.actions.getvariable
+
+09. is.workflow.actions.conditional
+{
+  "WFControlFlowMode": 1
+}
+
+10. is.workflow.actions.gettext
+{
+  "CustomOutputName": "Default Language",
+  "UUID": "3E39A4EA-8516-4A72-802F-FDBB3CBD3F98"
+}
+
+11. is.workflow.actions.conditional
+{
+  "WFControlFlowMode": 2,
+  "UUID": "E6083C40-C0FE-4D82-95FC-91180F877642"
+}
+
+12. is.workflow.actions.setvariable
+{
+  "WFVariableName": "Language"
+}
+
+13. is.workflow.actions.getvalueforkey
+{
+  "WFDictionaryKey": {
+    "Value": {
+      "string": "￼",
+      "attachmentsByRange": {
+        "{0, 1}": {
+          "VariableName": "Language",
+          "Type": "Variable"
+        }
+      }
+    },
+    "WFSerializationType": "WFTextTokenString"
+  },
+  "UUID": "788FEC21-EB89-4476-B703-A55E85FB2304"
+}
+
+14. is.workflow.actions.setvariable
+{
+  "WFVariableName": "Localization"
+}
+
+15. is.workflow.actions.gettext
+{
+  "UUID": "D49C9B15-C786-4403-A53B-BCF425F37A73"
+}
+
+16. is.workflow.actions.detect.date
+{
+  "UUID": "5AF886DB-D0D6-4CA4-8C94-A8D1C24A239B"
+}
+
+17. is.workflow.actions.getitemfromlist
+{
+  "WFItemSpecifier": "First Item",
+  "UUID": "B3DF204C-2034-4BCE-8083-CE710A4E4D9A"
+}
+
+18. is.workflow.actions.ask
+{
+  "WFAskActionPrompt": {
+    "Value": {
+      "string": "￼",
+      "attachmentsByRange": {
+        "{0, 1}": {
+          "VariableName": "Localization",
+          "Type": "Variable",
+          "Aggrandizements": [
+            {
+              "Type": "WFDictionaryValueVariableAggrandizement",
+              "DictionaryKey": "SELECT_DATE_TIME"
+            }
+          ]
+        }
+      }
+    },
+    "WFSerializationType": "WFTextTokenString"
+  },
+  "WFInputType": "Date and Time",
+  "WFAskActionDefaultAnswerDateAndTime": {
+    "Value": {
+      "string": "￼",
+      "attachmentsByRange": {
+        "{0, 1}": {
+          "OutputUUID": "B3DF204C-2034-4BCE-8083-CE710A4E4D9A",
+          "Type": "ActionOutput",
+          "OutputName": "Item from List"
+        }
+      }
+    },
+    "WFSerializationType": "WFTextTokenString"
+  },
+  "CustomOutputName": "Input Date and Time",
+  "UUID": "EC4B9BF3-7362-4083-9B5C-51653AA7F02A"
+}
+
+19. is.workflow.actions.gettimebetweendates
+{
+  "CustomOutputName": "Unix Timestamp",
+  "WFTimeUntilFromDate": "1970-01-01T00:00Z",
+  "WFTimeUntilUnit": "Seconds",
+  "UUID": "0FF57D40-372C-4E4E-8DE3-3CAEEFBD4287"
+}
+
+20. is.workflow.actions.gettext
+{
+  "CustomOutputName": "JavaScript",
+  "UUID": "1DC380BB-09B8-44A0-822E-9345A55BC142"
+}
+
+21. is.workflow.actions.url
+{
+  "UUID": "BABB6925-202C-458E-A985-9FBABFB39E75"
+}
+
+22. is.workflow.actions.gettypeaction
+{
+  "CustomOutputName": "Get File of Type",
+  "UUID": "58013AA6-ABED-4438-A43E-3B1AB17DF915"
+}
+
+23. is.workflow.actions.text.replace
+{
+  "UUID": "FE8A63C4-C241-4E5F-B2C2-C026D31D6FAD"
+}
+
+24. is.workflow.actions.text.match
+{
+  "UUID": "5E82AE95-0925-49E6-8A17-223F109D094F"
+}
+
+25. is.workflow.actions.dictionary
+{
+  "CustomOutputName": "Style Previews",
+  "UUID": "03D63194-DDCA-44C2-9D31-582D9C93D52C"
+}
+
+26. is.workflow.actions.getvalueforkey
+{
+  "WFGetDictionaryValueType": "All Keys",
+  "UUID": "5C36A240-4708-4917-8E1F-034ED5A04251"
+}
+
+27. is.workflow.actions.repeat.each
+{
+  "WFControlFlowMode": 0
+}
+
+28. is.workflow.actions.getvalueforkey
+{
+  "WFDictionaryKey": {
+    "Value": {
+      "string": "￼",
+      "attachmentsByRange": {
+        "{0, 1}": {
+          "VariableName": "Repeat Item",
+          "Type": "Variable"
+        }
+      }
+    },
+    "WFSerializationType": "WFTextTokenString"
+  },
+  "CustomOutputName": "Style Name",
+  "UUID": "424D6F71-009B-4A59-BA27-376412355340"
+}
+
+29. is.workflow.actions.getvalueforkey
+{
+  "WFDictionaryKey": {
+    "Value": {
+      "string": "￼",
+      "attachmentsByRange": {
+        "{0, 1}": {
+          "VariableName": "Repeat Item",
+          "Type": "Variable"
+        }
+      }
+    },
+    "WFSerializationType": "WFTextTokenString"
+  },
+  "CustomOutputName": "Style Preview",
+  "UUID": "1B3EF773-2948-408B-92E3-CE859177789C"
+}
+
+30. is.workflow.actions.getvalueforkey
+{
+  "WFDictionaryKey": {
+    "Value": {
+      "string": "icons.￼",
+      "attachmentsByRange": {
+        "{6, 1}": {
+          "VariableName": "Repeat Item",
+          "Type": "Variable"
+        }
+      }
+    },
+    "WFSerializationType": "WFTextTokenString"
+  },
+  "CustomOutputName": "Style Icon",
+  "UUID": "F3F49701-C48E-493E-8CC1-F3862050C3FD"
+}
+
+31. is.workflow.actions.getvalueforkey
+{
+  "WFDictionaryKey": {
+    "Value": {
+      "string": "styles.￼",
+      "attachmentsByRange": {
+        "{7, 1}": {
+          "VariableName": "Repeat Item",
+          "Type": "Variable"
+        }
+      }
+    },
+    "WFSerializationType": "WFTextTokenString"
+  },
+  "CustomOutputName": "Style Code",
+  "UUID": "F93FE96F-AE95-4826-A570-334629157A38"
+}
+
+32. is.workflow.actions.gettext
+{
+  "UUID": "B2784F88-FBB5-4473-9850-360E8296F47A"
+}
+
+33. is.workflow.actions.repeat.each
+{
+  "WFControlFlowMode": 2,
+  "UUID": "A9CA11FE-8BFC-4AE8-85A8-08CFFC9F4EAB"
+}
+
+34. is.workflow.actions.text.combine
+{
+  "UUID": "6D38C5D3-CC37-4BA1-8D09-FA73FF14A63D"
+}
+
+35. is.workflow.actions.setitemname
+{
+  "CustomOutputName": "Style Menu",
+  "UUID": "0BE0C595-804B-4F3B-BA4C-08BBE25C2F2F"
+}
+
+36. is.workflow.actions.choosefromlist
+{
+  "WFChooseFromListActionPrompt": {
+    "Value": {
+      "string": "￼",
+      "attachmentsByRange": {
+        "{0, 1}": {
+          "VariableName": "Localization",
+          "Type": "Variable",
+          "Aggrandizements": [
+            {
+              "Type": "WFDictionaryValueVariableAggrandizement",
+              "DictionaryKey": "SELECT_STYLE"
+            }
+          ]
+        }
+      }
+    },
+    "WFSerializationType": "WFTextTokenString"
+  },
+  "UUID": "54A1E10E-76DD-44CD-84FF-BC01E8A60584"
+}
+
+37. is.workflow.actions.gettext
+{
+  "CustomOutputName": "Discord Time Code",
+  "UUID": "60263865-6A2C-479C-BB0A-BCFFBCD46F25"
+}
+
+38. is.workflow.actions.setclipboard
+{
+  "UUID": "480BFA61-5BEB-48F8-8DC7-4546EB92ECEF"
+}
+
+39. is.workflow.actions.text.replace
+{
+  "UUID": "B82BD6C0-5A43-444C-912F-D6EDFA46E173"
+}
+
+40. is.workflow.actions.notification
+{
+  "UUID": "98051B0A-0368-4645-A09E-2EEBBCDD0DA2"
+}

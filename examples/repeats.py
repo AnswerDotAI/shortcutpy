@@ -1,4 +1,4 @@
-from shortcutpy.dsl import shortcut, show_result
+from shortcutpy.dsl import *
 
 
 @shortcut(name="Repeat Demo", color="blue", glyph="textBubble")

@@ -1,4 +1,4 @@
-from shortcutpy.dsl import ask_for_text, shortcut, show_result
+from shortcutpy.dsl import *
 
 
 @shortcut

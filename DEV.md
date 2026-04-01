@@ -26,7 +26,15 @@
 - enforce the MVP language subset
 - convert Python AST into a simpler IR (`Assign`, `IfStmt`, `RepeatEach`, `CallExpr`, and so on)
 
-The shortcut entrypoint can have any function name. `@shortcut` with no `(...)` uses that function name as the shortcut name after converting `snake_case` to spaced words.
+The shortcut entrypoint can have any function name. `@shortcut` with no `(...)` uses that function name as the shortcut name after converting `snake_case` to spaced words. `@shortcut(..., input_types=[...])` lets you override the emitted `WFWorkflowInputContentItemClasses` with a small alias map like `text`, `date`, `image`, and `file`.
+
+`Lowerer` also tracks just enough container shape to compile Python indexing cleanly:
+
+- dict literals can use literal or variable keys
+- `mapping[key]` lowers to `getvalueforkey`
+- `items[0]` lowers to `getitemfromlist`, with Python's zero-based index shifted to Shortcuts' one-based index
+
+Dynamic list indices and slices are still out of scope.
 
 This keeps AST weirdness out of emission. If you're adding syntax, it usually belongs here first.
 
@@ -35,6 +43,8 @@ This keeps AST weirdness out of emission. If you're adding syntax, it usually be
 - variables are referenced by name
 - action outputs are referenced by output name plus UUID
 - text interpolation uses `WFTextTokenString` attachments
+- `shortcut_input()` is a special reference, not an action, and it sets `WFWorkflowHasShortcutInputVariables`
+- `preferred_language()` is a tiny hand-written action wrapper over `runshellscript`, so it carries Shortcuts' shell-script permission behavior
 
 `Ref` is the glue for that. If a new action returns a value, make sure it returns the right kind of `Ref`.
 
@@ -96,6 +106,14 @@ Compile, sign, and open:
 
 ```bash
 shortcutpy -o path/to/file.py
+```
+
+When `-o` is used without `-O`, the CLI writes to a temp directory named with the shortcut's real output name, then opens that file. That keeps the source directory clean without relying on a post-`open` delete race.
+
+Dump an installed shortcut from `~/Library/Shortcuts/Shortcuts.sqlite`:
+
+```bash
+shortcutpy dump "timestamp discord" -O examples/timestamp_discord.original.txt
 ```
 
 ## Versioning And Release

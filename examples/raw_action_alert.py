@@ -1,4 +1,4 @@
-from shortcutpy.dsl import ask_for_text, raw_action, shortcut
+from shortcutpy.dsl import *
 
 
 @shortcut(name="Raw Action Alert", color="orange", glyph="alert")

@@ -23,3 +23,11 @@ Files here:
 - `repeats.py`: `for item in items` and `for _ in range(n)`
 - `resize_images.py`: file selection, image resize, save
 - `raw_action_alert.py`: drop down to a raw Shortcuts action
+- `timestamp_discord.py`: tutorial-style example with dictionary lookups, list indexing, previews, and clipboard/input fallback
+- `timestamp_discord.original.txt`: text dump of the real installed shortcut, for parity work against the Python version
+
+You can regenerate a reference dump for any installed shortcut with:
+
+```bash
+shortcutpy dump "timestamp discord" -O examples/timestamp_discord.original.txt
+```

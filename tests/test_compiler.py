@@ -3,7 +3,7 @@ from pathlib import Path
 from types import SimpleNamespace
 
 from shortcutpy import compile_file, compile_source
-from shortcutpy.compiler import SIGNING_STDERR_NOISE, sign_shortcut
+from shortcutpy.compiler import CompileError, SIGNING_STDERR_NOISE, sign_shortcut
 
 
 def test_compile_greeting_payload():
@@ -22,6 +22,7 @@ def main():
 """
     artifact = compile_source(src, filename="greeting.py")
     actions = artifact.payload["WFWorkflowActions"]
+    assert artifact.payload["WFWorkflowName"] == "Greeting"
     ids = [o["WFWorkflowActionIdentifier"] for o in actions]
     assert ids == [
         "is.workflow.actions.ask",
@@ -68,6 +69,7 @@ def hello_world():
 """
     artifact = compile_source(src, filename="hello.py")
     assert artifact.program.meta.name == "Hello World"
+    assert artifact.payload["WFWorkflowName"] == "Hello World"
     assert artifact.payload["WFWorkflowActions"][-1]["WFWorkflowActionIdentifier"] == "is.workflow.actions.showresult"
 
 
@@ -82,6 +84,160 @@ def get_current_weather():
     artifact = compile_source(src, filename="weather.py")
     assert artifact.program.meta.name == "Get Current Weather"
     assert artifact.program.meta.color == "yellow"
+
+
+def test_ask_for_datetime_and_unix_timestamp_emit_expected_actions():
+    src = """
+from shortcutpy.dsl import shortcut, ask_for_datetime, current_date, show_result, unix_timestamp
+
+@shortcut(name="Timestamp")
+def main():
+    picked = ask_for_datetime("When?", default=current_date())
+    show_result(unix_timestamp(picked))
+"""
+    artifact = compile_source(src, filename="timestamp.py")
+    actions = artifact.payload["WFWorkflowActions"]
+    assert [o["WFWorkflowActionIdentifier"] for o in actions] == [
+        "is.workflow.actions.date",
+        "is.workflow.actions.ask",
+        "is.workflow.actions.setvariable",
+        "is.workflow.actions.gettimebetweendates",
+        "is.workflow.actions.showresult"]
+    ask = actions[1]["WFWorkflowActionParameters"]
+    assert ask["WFInputType"] == "Date and Time"
+    assert ask["WFAskActionPrompt"] == "When?"
+    assert ask["WFAskActionDefaultAnswerDateAndTime"]["Value"]["attachmentsByRange"]["{0, 1}"]["OutputName"] == "Text"
+    ts = actions[3]["WFWorkflowActionParameters"]
+    assert ts["WFTimeUntilFromDate"] == "1970-01-01T00:00Z"
+    assert ts["WFTimeUntilUnit"] == "Seconds"
+
+
+def test_shortcut_input_sets_payload_flag():
+    src = """
+from shortcutpy.dsl import shortcut, shortcut_input, show_result
+
+@shortcut(name="Input")
+def main():
+    shared = shortcut_input()
+    show_result(shared)
+"""
+    artifact = compile_source(src, filename="input.py")
+    assert artifact.payload["WFWorkflowHasShortcutInputVariables"] is True
+    setvar = artifact.payload["WFWorkflowActions"][0]["WFWorkflowActionParameters"]
+    assert setvar["WFInput"]["Value"]["Type"] == "ExtensionInput"
+
+
+def test_preferred_language_emits_shell_script():
+    src = """
+from shortcutpy.dsl import preferred_language, shortcut, show_result
+
+@shortcut(name="Lang")
+def main():
+    show_result(preferred_language())
+"""
+    artifact = compile_source(src, filename="lang.py")
+    actions = artifact.payload["WFWorkflowActions"]
+    assert [o["WFWorkflowActionIdentifier"] for o in actions] == [
+        "is.workflow.actions.gettext",
+        "is.workflow.actions.runshellscript",
+        "is.workflow.actions.showresult"]
+    params = actions[1]["WFWorkflowActionParameters"]
+    assert params["Script"] == "defaults read -g AppleLocale | cut -c1-2 | tr -d '\\n'"
+    assert params["Shell"] == "/bin/zsh"
+
+
+def test_shortcut_input_types_override_default_classes():
+    src = """
+from shortcutpy.dsl import shortcut, shortcut_input, show_result
+
+@shortcut(name="Input", input_types=["text", "date"])
+def main():
+    shared = shortcut_input()
+    show_result(shared)
+"""
+    artifact = compile_source(src, filename="typed_input.py")
+    assert artifact.payload["WFWorkflowInputContentItemClasses"] == ["WFStringContentItem", "WFDateContentItem"]
+
+
+def test_dict_indexing_emits_getvalueforkey():
+    src = """
+from shortcutpy.dsl import *
+
+@shortcut(name="Lookup")
+def main():
+    labels = {"formal": "Good day", "casual": "Hey"}
+    tone = "formal"
+    show_result(labels[tone])
+"""
+    artifact = compile_source(src, filename="lookup.py")
+    action = artifact.payload["WFWorkflowActions"][-2]
+    assert action["WFWorkflowActionIdentifier"] == "is.workflow.actions.getvalueforkey"
+    params = action["WFWorkflowActionParameters"]
+    assert params["WFGetDictionaryValueType"] == "Value"
+    assert params["WFDictionaryKey"]["WFSerializationType"] == "WFTextTokenString"
+    attachment = params["WFDictionaryKey"]["Value"]["attachmentsByRange"]["{0, 1}"]
+    assert attachment["VariableName"] == "tone"
+
+
+def test_dictionary_literal_accepts_runtime_keys():
+    src = """
+from shortcutpy.dsl import *
+
+@shortcut(name="Lookup")
+def main():
+    key = "formal"
+    labels = {key: "Good day"}
+    show_result(labels[key])
+"""
+    artifact = compile_source(src, filename="lookup.py")
+    dictionary = artifact.payload["WFWorkflowActions"][2]["WFWorkflowActionParameters"]["WFItems"]["Value"]["WFDictionaryFieldValueItems"][0]
+    assert dictionary["WFKey"]["Value"]["attachmentsByRange"]["{0, 1}"]["VariableName"] == "key"
+
+
+def test_list_indexing_uses_python_zero_based_indices():
+    src = """
+from shortcutpy.dsl import *
+
+@shortcut(name="Lookup")
+def main():
+    dates = get_dates("today or tomorrow")
+    show_result(dates[0])
+"""
+    artifact = compile_source(src, filename="lookup.py")
+    action = artifact.payload["WFWorkflowActions"][-2]
+    assert action["WFWorkflowActionIdentifier"] == "is.workflow.actions.getitemfromlist"
+    params = action["WFWorkflowActionParameters"]
+    assert params["WFItemSpecifier"] == "Item At Index"
+    assert params["WFItemIndex"] == 1
+
+
+def test_dynamic_list_index_is_rejected():
+    src = """
+from shortcutpy.dsl import *
+
+@shortcut
+def main():
+    items = ["a", "b"]
+    i = 0
+    show_result(items[i])
+"""
+    try: compile_source(src, filename="lookup.py")
+    except CompileError as e: assert "List indices must be integer literals" in str(e)
+    else: raise AssertionError("Expected compile_source() to reject dynamic list indexing")
+
+
+def test_negative_list_index_is_rejected():
+    src = """
+from shortcutpy.dsl import *
+
+@shortcut
+def main():
+    items = ["a"]
+    show_result(items[-1])
+"""
+    try: compile_source(src, filename="lookup.py")
+    except CompileError as e: assert "Negative list indices are not supported" in str(e)
+    else: raise AssertionError("Expected compile_source() to reject negative list indexing")
 
 
 def test_compile_file_signs_via_shortcuts(monkeypatch, tmp_path):
@@ -107,6 +263,21 @@ def main():
     assert calls == [([
         "shortcuts", "sign", "--mode", "people-who-know-me", "--input", str(tmp_path / "hello.unsigned.shortcut"), "--output", str(out)], False, True, True)]
     assert out.read_bytes() == b"signed"
+
+
+def test_compile_file_defaults_output_to_shortcut_name(tmp_path):
+    src = tmp_path / "weather.py"
+    src.write_text(
+        """
+from shortcutpy.dsl import shortcut, show_result
+
+@shortcut(name="Current Weather")
+def main():
+    show_result("hi")
+""")
+    compile_file(src, sign=False)
+    out = tmp_path / "Current Weather.shortcut"
+    assert out.exists()
 
 
 def test_sign_shortcut_filters_known_apple_noise(monkeypatch, capsys, tmp_path):
