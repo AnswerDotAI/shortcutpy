@@ -1,0 +1,7126 @@
+{
+  "actions": {
+    "add_calendar": {
+      "doc": "[Calendars] Add Calendar: Create a calendar with `name`.",
+      "fixed": {},
+      "identifier": "addnewcalendar",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "CalendarName",
+          "kind": "text",
+          "optional": false,
+          "py_name": "name"
+        }
+      ],
+      "source_name": "addCalendar"
+    },
+    "add_quick_reminder": {
+      "doc": "[Reminders] Add Quick Reminder",
+      "fixed": {},
+      "identifier": "is.workflow.actions.addquickreminder",
+      "output": null,
+      "params": [],
+      "source_name": "addQuickReminder"
+    },
+    "add_to_books": {
+      "doc": "[Books] Add to Books: Add `input` to books. `input` is expected to be a PDF or epub file.",
+      "fixed": {},
+      "identifier": "com.apple.iBooksX.openin",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "BooksInput",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "input"
+        }
+      ],
+      "source_name": "addToBooks"
+    },
+    "add_to_gif": {
+      "doc": "[GIFs] Add To GIF: Add a frame to a GIF.",
+      "fixed": {},
+      "identifier": "addframetogif",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFImage",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "image"
+        },
+        {
+          "enum": null,
+          "key": "WFInputGIF",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "gif"
+        },
+        {
+          "enum": null,
+          "key": "WFGIFDelayTime",
+          "kind": "text",
+          "optional": true,
+          "py_name": "delay"
+        },
+        {
+          "enum": null,
+          "key": "WFGIFAutoSize",
+          "kind": "bool",
+          "optional": true,
+          "py_name": "auto_size"
+        },
+        {
+          "enum": null,
+          "key": "WFGIFManualSizeWidth",
+          "kind": "text",
+          "optional": true,
+          "py_name": "width"
+        },
+        {
+          "enum": null,
+          "key": "WFGIFManualSizeHeight",
+          "kind": "text",
+          "optional": true,
+          "py_name": "height"
+        }
+      ],
+      "source_name": "addToGIF"
+    },
+    "add_to_music": {
+      "doc": "Add to Music: Add music to library.",
+      "fixed": {},
+      "identifier": "addtoplaylist",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFInput",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "songs"
+        }
+      ],
+      "source_name": "addToMusic"
+    },
+    "add_to_playlist": {
+      "doc": "[Playlists] Add to Playlist",
+      "fixed": {},
+      "identifier": "addtoplaylist",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFPlaylistName",
+          "kind": "text",
+          "optional": false,
+          "py_name": "playlist_name"
+        },
+        {
+          "enum": null,
+          "key": "WFInput",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "songs"
+        }
+      ],
+      "source_name": "addToPlaylist"
+    },
+    "add_weather_location": {
+      "doc": "[Weather] Add Location to List: Add a location to Weather app.",
+      "fixed": {},
+      "identifier": "com.apple.weather.AddSavedLocationIntent",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "placemark",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "location"
+        }
+      ],
+      "source_name": "addWeatherLocation"
+    },
+    "adjust_date": {
+      "doc": "[Dates] Adjust Date: Adjust a date or get the start of a time period.",
+      "fixed": {},
+      "identifier": "adjustdate",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFDate",
+          "kind": "text",
+          "optional": false,
+          "py_name": "date"
+        },
+        {
+          "enum": "DateAdjustOperationValue",
+          "key": "WFAdjustOperation",
+          "kind": "enum",
+          "optional": false,
+          "py_name": "operation"
+        },
+        {
+          "enum": null,
+          "key": "WFDuration",
+          "kind": "#dateUnit",
+          "optional": true,
+          "py_name": "unit"
+        }
+      ],
+      "source_name": "adjustDate"
+    },
+    "adjust_text_tone": {
+      "doc": "[Writing Tools] Adjust Text Tone: Adjust the tone of the text using Apple Intelligence Writing Tools.",
+      "fixed": {},
+      "identifier": "com.apple.WritingTools.WritingToolsAppIntentsExtension.AdjustToneIntent",
+      "output": "text",
+      "params": [
+        {
+          "enum": null,
+          "key": "text",
+          "kind": "text",
+          "optional": false,
+          "py_name": "text"
+        },
+        {
+          "enum": "TextToneValue",
+          "key": "tone",
+          "kind": "enum",
+          "optional": false,
+          "py_name": "tone"
+        }
+      ],
+      "source_name": "adjustTextTone"
+    },
+    "airdrop": {
+      "doc": "[AirDrop] AirDrop: Prompt the user to AirDrop `input`.",
+      "fixed": {},
+      "identifier": "airdropdocument",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFInput",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "input"
+        }
+      ],
+      "source_name": "airdrop"
+    },
+    "alert": {
+      "doc": "[Notifications] Alert: Shows an alert with text and optional title and an OK button to proceed.",
+      "fixed": {
+        "WFAlertActionCancelButtonShown": false
+      },
+      "identifier": "alert",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFAlertActionMessage",
+          "kind": "text",
+          "optional": false,
+          "py_name": "alert"
+        },
+        {
+          "enum": null,
+          "key": "WFAlertActionTitle",
+          "kind": "text",
+          "optional": true,
+          "py_name": "title"
+        }
+      ],
+      "source_name": "alert"
+    },
+    "alternating_case": {
+      "doc": "[Text Editing] Alternating Case: Capitalizes the text with alternating case.",
+      "fixed": {
+        "Show-text": true,
+        "WFCaseType": "cApItAlIzE wItH aLtErNaTiNg cAsE"
+      },
+      "identifier": "text.changecase",
+      "output": "text",
+      "params": [
+        {
+          "enum": null,
+          "key": "text",
+          "kind": "text",
+          "optional": false,
+          "py_name": "text"
+        }
+      ],
+      "source_name": "alternatingCase"
+    },
+    "append_note": {
+      "doc": "[Notes] Append Note: Append text to a note.",
+      "fixed": {},
+      "identifier": "appendnote",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFNote",
+          "kind": "text",
+          "optional": false,
+          "py_name": "note"
+        },
+        {
+          "enum": null,
+          "key": "WFInput",
+          "kind": "text",
+          "optional": false,
+          "py_name": "input"
+        }
+      ],
+      "source_name": "appendNote"
+    },
+    "append_to_file": {
+      "doc": "[Files & Folders] Append File: Append text to a file.",
+      "fixed": {
+        "WFAppendFileWriteMode": "Append"
+      },
+      "identifier": "file.append",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFFilePath",
+          "kind": "text",
+          "optional": false,
+          "py_name": "file_path"
+        },
+        {
+          "enum": null,
+          "key": "WFInput",
+          "kind": "text",
+          "optional": false,
+          "py_name": "text"
+        }
+      ],
+      "source_name": "appendToFile"
+    },
+    "ask_chat_gpt": {
+      "doc": "[Language Models] Ask Chat GPT: Ask Chat GPT using a prompt. Follow up will open a follow-up prompt to the model.",
+      "fixed": {
+        "WFLLMModel": "ChatGPT"
+      },
+      "identifier": "askllm",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFLLMPrompt",
+          "kind": "text",
+          "optional": false,
+          "py_name": "prompt"
+        },
+        {
+          "enum": null,
+          "key": "FollowUp",
+          "kind": "bool",
+          "optional": true,
+          "py_name": "follow_up"
+        },
+        {
+          "enum": "GenerativeResultTypeValue",
+          "key": "WFGenerativeResultType",
+          "kind": "enum",
+          "optional": true,
+          "py_name": "result_type"
+        }
+      ],
+      "source_name": "askChatGPT"
+    },
+    "ask_cloud_llm": {
+      "doc": "[Language Models] Ask Private Cloud Compute LLM: Ask a private cloud compute LLM using a prompt. Follow up will open a follow-up prompt to the model.",
+      "fixed": {},
+      "identifier": "askllm",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFLLMPrompt",
+          "kind": "text",
+          "optional": false,
+          "py_name": "prompt"
+        },
+        {
+          "enum": null,
+          "key": "FollowUp",
+          "kind": "bool",
+          "optional": true,
+          "py_name": "follow_up"
+        },
+        {
+          "enum": "GenerativeResultTypeValue",
+          "key": "WFGenerativeResultType",
+          "kind": "enum",
+          "optional": true,
+          "py_name": "result_type"
+        }
+      ],
+      "source_name": "askCloudLLM"
+    },
+    "ask_device_llm": {
+      "doc": "[Language Models] Ask On-Device LLM: Ask an On-Device LLM using a prompt. Follow up will open a follow-up prompt to the model.",
+      "fixed": {
+        "WFLLMModel": "Apple Intelligence on Device"
+      },
+      "identifier": "askllm",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFLLMPrompt",
+          "kind": "text",
+          "optional": false,
+          "py_name": "prompt"
+        },
+        {
+          "enum": null,
+          "key": "FollowUp",
+          "kind": "bool",
+          "optional": true,
+          "py_name": "follow_up"
+        },
+        {
+          "enum": "GenerativeResultTypeValue",
+          "key": "WFGenerativeResultType",
+          "kind": "enum",
+          "optional": true,
+          "py_name": "result_type"
+        }
+      ],
+      "source_name": "askDeviceLLM"
+    },
+    "ask_llm": {
+      "doc": "[Language Models] Ask LLM: Ask a specific LLM using a prompt. Follow up will open a follow-up prompt to the model.",
+      "fixed": {},
+      "identifier": "askllm",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFLLMPrompt",
+          "kind": "text",
+          "optional": false,
+          "py_name": "prompt"
+        },
+        {
+          "enum": "LlmModelValue",
+          "key": "WFLLMModel",
+          "kind": "enum",
+          "optional": true,
+          "py_name": "model"
+        },
+        {
+          "enum": null,
+          "key": "FollowUp",
+          "kind": "bool",
+          "optional": true,
+          "py_name": "follow_up"
+        },
+        {
+          "enum": "GenerativeResultTypeValue",
+          "key": "WFGenerativeResultType",
+          "kind": "enum",
+          "optional": true,
+          "py_name": "result_type"
+        }
+      ],
+      "source_name": "askLLM"
+    },
+    "base64_decode": {
+      "doc": "Base 64 Decode: Base 64 decodes input.",
+      "fixed": {
+        "WFEncodeMode": "Decode"
+      },
+      "identifier": "base64encode",
+      "output": "text",
+      "params": [
+        {
+          "enum": null,
+          "key": "WFInput",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "input"
+        }
+      ],
+      "source_name": "base64Decode"
+    },
+    "base64_encode": {
+      "doc": "Base 64 Encode: Base 64 encodes input.",
+      "fixed": {
+        "input": "Encode"
+      },
+      "identifier": "base64encode",
+      "output": "text",
+      "params": [
+        {
+          "enum": null,
+          "key": "WFInput",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "encode_input"
+        }
+      ],
+      "source_name": "base64Encode"
+    },
+    "calculate": {
+      "doc": "Calculate: Perform various calculation operations using one or two operands.",
+      "fixed": {
+        "WFMathOperation": "..."
+      },
+      "identifier": "math",
+      "output": "number",
+      "params": [
+        {
+          "enum": "CalculationOperationValue",
+          "key": "WFScientificMathOperation",
+          "kind": "enum",
+          "optional": false,
+          "py_name": "operation"
+        },
+        {
+          "enum": null,
+          "key": "WFInput",
+          "kind": "number",
+          "optional": false,
+          "py_name": "operand_one"
+        },
+        {
+          "enum": null,
+          "key": "WFMathOperand",
+          "kind": "number",
+          "optional": true,
+          "py_name": "operand_two"
+        }
+      ],
+      "source_name": "calculate"
+    },
+    "call": {
+      "doc": "[Phone] Call: Call a contact.",
+      "fixed": {},
+      "identifier": "com.apple.mobilephone.call",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFCallContact",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "contact"
+        }
+      ],
+      "source_name": "call"
+    },
+    "capitalize": {
+      "doc": "[Text Editing] Capitalize: Capitalizes the text with sentence case.",
+      "fixed": {
+        "Show-text": true,
+        "WFCaseType": "Capitalize with sentence case"
+      },
+      "identifier": "text.changecase",
+      "output": "text",
+      "params": [
+        {
+          "enum": null,
+          "key": "text",
+          "kind": "text",
+          "optional": false,
+          "py_name": "text"
+        }
+      ],
+      "source_name": "capitalize"
+    },
+    "capitalize_all": {
+      "doc": "[Text Editing] Capitalize All: Capitalizes every word in the text.",
+      "fixed": {
+        "Show-text": true,
+        "WFCaseType": "Capitalize Every Word"
+      },
+      "identifier": "text.changecase",
+      "output": "text",
+      "params": [
+        {
+          "enum": null,
+          "key": "text",
+          "kind": "text",
+          "optional": false,
+          "py_name": "text"
+        }
+      ],
+      "source_name": "capitalizeAll"
+    },
+    "ceil": {
+      "doc": "[Rounding] Round Up: Always round a number up to a specified rounding place.",
+      "fixed": {
+        "WFRoundMode": "Always Round Up"
+      },
+      "identifier": "round",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFInput",
+          "kind": "number",
+          "optional": false,
+          "py_name": "number"
+        },
+        {
+          "enum": "RoundingValue",
+          "key": "WFRoundTo",
+          "kind": "enum",
+          "optional": true,
+          "py_name": "round_to"
+        }
+      ],
+      "source_name": "ceil"
+    },
+    "choose_from_list": {
+      "doc": "[Lists] Choose from List: Prompts the user to choose from a list.",
+      "fixed": {},
+      "identifier": "choosefromlist",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFInput",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "list"
+        },
+        {
+          "enum": null,
+          "key": "WFChooseFromListActionPrompt",
+          "kind": "text",
+          "optional": true,
+          "py_name": "prompt"
+        },
+        {
+          "enum": null,
+          "key": "WFChooseFromListActionSelectMultiple",
+          "kind": "bool",
+          "optional": true,
+          "py_name": "select_multiple"
+        },
+        {
+          "enum": null,
+          "key": "WFChooseFromListActionSelectAll",
+          "kind": "bool",
+          "optional": true,
+          "py_name": "select_all"
+        }
+      ],
+      "source_name": "chooseFromList"
+    },
+    "clear_up_next": {
+      "doc": "[Playback] Clear Up Next: Clear the queue.",
+      "fixed": {},
+      "identifier": "clearupnext",
+      "output": null,
+      "params": [],
+      "source_name": "clearUpNext"
+    },
+    "combine_images": {
+      "doc": "[Image Editing] Combine Images",
+      "fixed": {},
+      "identifier": "combineimages",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFInput",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "images"
+        },
+        {
+          "enum": "ImageCombineModeValue",
+          "key": "WFImageCombineMode",
+          "kind": "enum",
+          "optional": true,
+          "py_name": "mode"
+        },
+        {
+          "enum": null,
+          "key": "WFImageCombineSpacing",
+          "kind": "number",
+          "optional": true,
+          "py_name": "spacing"
+        }
+      ],
+      "source_name": "combineImages"
+    },
+    "comment": {
+      "doc": "Comment: Add an explicit comment.",
+      "fixed": {},
+      "identifier": "comment",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFCommentActionText",
+          "kind": "rawtext",
+          "optional": false,
+          "py_name": "text"
+        }
+      ],
+      "source_name": "comment"
+    },
+    "confirm": {
+      "doc": "[Notifications] Confirm: Shows an alert with text and optional title. It displays an OK button to proceed, and a cancel button that stops the Shortcut.",
+      "fixed": {
+        "WFAlertActionCancelButtonShown": true
+      },
+      "identifier": "alert",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFAlertActionMessage",
+          "kind": "text",
+          "optional": false,
+          "py_name": "alert"
+        },
+        {
+          "enum": null,
+          "key": "WFAlertActionTitle",
+          "kind": "text",
+          "optional": true,
+          "py_name": "title"
+        }
+      ],
+      "source_name": "confirm"
+    },
+    "connect_to_server": {
+      "doc": "[Server] Connect to Server: Connect to file server at `url`.",
+      "fixed": {},
+      "identifier": "connecttoservers",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFInput",
+          "kind": "text",
+          "optional": false,
+          "py_name": "url"
+        }
+      ],
+      "source_name": "connectToServer"
+    },
+    "connected_to_charger": {
+      "doc": "[Battery] Connected to Charger: Determines if the device is currently connected to a charger.",
+      "fixed": {
+        "Subject": "Is Connected to Charger"
+      },
+      "identifier": "getbatterylevel",
+      "output": "bool",
+      "params": [],
+      "source_name": "connectedToCharger"
+    },
+    "content_graph": {
+      "doc": "[Output] Content Graph: Display input as a content graph.",
+      "fixed": {},
+      "identifier": "viewresult",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFInput",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "input"
+        }
+      ],
+      "source_name": "contentGraph"
+    },
+    "convert_image": {
+      "doc": "[Image Editing] Convert Image: Convert image to another format, compression quality, and/or remove metadata.",
+      "fixed": {},
+      "identifier": "image.convert",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFInput",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "image"
+        },
+        {
+          "enum": "ConvertImageFormatsValue",
+          "key": "WFImageFormat",
+          "kind": "enum",
+          "optional": false,
+          "py_name": "format"
+        },
+        {
+          "enum": null,
+          "key": "WFImageCompressionQuality",
+          "kind": "float",
+          "optional": true,
+          "py_name": "quality"
+        },
+        {
+          "enum": null,
+          "key": "WFImagePreserveMetadata",
+          "kind": "bool",
+          "optional": true,
+          "py_name": "preserve_metadata"
+        }
+      ],
+      "source_name": "convertImage"
+    },
+    "convert_to_jpeg": {
+      "doc": "[Image Editing] Convert to JPEG: Convert image to a JPEG.",
+      "fixed": {
+        "WFImageFormat": "JPEG"
+      },
+      "identifier": "image.convert",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFInput",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "image"
+        },
+        {
+          "enum": null,
+          "key": "WFImageCompressionQuality",
+          "kind": "number",
+          "optional": true,
+          "py_name": "compression_quality"
+        },
+        {
+          "enum": null,
+          "key": "WFImagePreserveMetadata",
+          "kind": "bool",
+          "optional": true,
+          "py_name": "preserve_metadata"
+        }
+      ],
+      "source_name": "convertToJPEG"
+    },
+    "convert_to_usdz": {
+      "doc": "Convert to USDZ",
+      "fixed": {},
+      "identifier": "com.apple.HydraUSDAppIntents.ConvertToUSDZ",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "file",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "file"
+        }
+      ],
+      "source_name": "convertToUSDZ"
+    },
+    "correct_spelling": {
+      "doc": "[Text Editing] Correct Spelling: Corrects the spelling of the provided text.",
+      "fixed": {
+        "Show-text": true
+      },
+      "identifier": "correctspelling",
+      "output": "text",
+      "params": [
+        {
+          "enum": null,
+          "key": "text",
+          "kind": "text",
+          "optional": false,
+          "py_name": "text"
+        }
+      ],
+      "source_name": "correctSpelling"
+    },
+    "count": {
+      "doc": "Count: Returns a count of `type` of items in `input`.",
+      "fixed": {},
+      "identifier": "count",
+      "output": "number",
+      "params": [
+        {
+          "enum": null,
+          "key": "Input",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "input"
+        },
+        {
+          "enum": "CountTypeValue",
+          "key": "WFCountType",
+          "kind": "enum",
+          "optional": true,
+          "py_name": "type"
+        }
+      ],
+      "source_name": "count"
+    },
+    "create_album": {
+      "doc": "Create Album",
+      "fixed": {},
+      "identifier": "photos.createalbum",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "AlbumName",
+          "kind": "text",
+          "optional": false,
+          "py_name": "name"
+        },
+        {
+          "enum": null,
+          "key": "WFInput",
+          "kind": "variable",
+          "optional": true,
+          "py_name": "images"
+        }
+      ],
+      "source_name": "createAlbum"
+    },
+    "create_folder": {
+      "doc": "[Files & Folders] Create Folder: Create a folder.",
+      "fixed": {},
+      "identifier": "file.createfolder",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFFilePath",
+          "kind": "text",
+          "optional": false,
+          "py_name": "path"
+        }
+      ],
+      "source_name": "createFolder"
+    },
+    "crop_image": {
+      "doc": "[Image Editing] Crop Image",
+      "fixed": {},
+      "identifier": "image.crop",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFInput",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "image"
+        },
+        {
+          "enum": null,
+          "key": "WFImageCropWidth",
+          "kind": "text",
+          "optional": true,
+          "py_name": "width"
+        },
+        {
+          "enum": null,
+          "key": "WFImageCropHeight",
+          "kind": "text",
+          "optional": true,
+          "py_name": "height"
+        },
+        {
+          "enum": "CropImagePositionValue",
+          "key": "WFImageCropPosition",
+          "kind": "enum",
+          "optional": true,
+          "py_name": "position"
+        },
+        {
+          "enum": null,
+          "key": "WFImageCropX",
+          "kind": "text",
+          "optional": true,
+          "py_name": "custom_position_x"
+        },
+        {
+          "enum": null,
+          "key": "WFImageCropY",
+          "kind": "text",
+          "optional": true,
+          "py_name": "custom_position_y"
+        }
+      ],
+      "source_name": "cropImage"
+    },
+    "current_date": {
+      "doc": "[Dates] Current Date: Get the current date.",
+      "fixed": {
+        "WFDateActionMode": "Current Date"
+      },
+      "identifier": "date",
+      "output": null,
+      "params": [],
+      "source_name": "currentDate"
+    },
+    "current_location": {
+      "doc": "Current Location: Get current user location.",
+      "fixed": {
+        "WFLocation": {
+          "isCurrentLocation": true
+        }
+      },
+      "identifier": "location",
+      "output": null,
+      "params": [],
+      "source_name": "currentLocation"
+    },
+    "custom_image_mask": {
+      "doc": "[Image Editing] Custom Image Mask: Mask an image with a custom image mask.",
+      "fixed": {
+        "WFMaskType": "Custom Image"
+      },
+      "identifier": "image.mask",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFInput",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "image"
+        },
+        {
+          "enum": null,
+          "key": "WFCustomMaskImage",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "custom_mask_image"
+        }
+      ],
+      "source_name": "customImageMask"
+    },
+    "custom_image_overlay": {
+      "doc": "[Image Editing] Custom Image Overlay: Specify custom image overlay configuration.",
+      "fixed": {
+        "WFShouldShowImageEditor": false
+      },
+      "identifier": "overlayimageonimage",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFInput",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "image"
+        },
+        {
+          "enum": null,
+          "key": "WFImage",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "overlay_image"
+        },
+        {
+          "enum": null,
+          "key": "WFImageWidth",
+          "kind": "text",
+          "optional": true,
+          "py_name": "width"
+        },
+        {
+          "enum": null,
+          "key": "WFImageHeight",
+          "kind": "text",
+          "optional": true,
+          "py_name": "height"
+        },
+        {
+          "enum": null,
+          "key": "WFRotation",
+          "kind": "text",
+          "optional": true,
+          "py_name": "rotation"
+        },
+        {
+          "enum": null,
+          "key": "WFOverlayImageOpacity",
+          "kind": "text",
+          "optional": true,
+          "py_name": "opacity"
+        },
+        {
+          "enum": "CustomImageOverlayPositionValue",
+          "key": "WFImagePosition",
+          "kind": "enum",
+          "optional": true,
+          "py_name": "position"
+        },
+        {
+          "enum": null,
+          "key": "WFImageX",
+          "kind": "text",
+          "optional": true,
+          "py_name": "custom_position_x"
+        },
+        {
+          "enum": null,
+          "key": "WFImageY",
+          "kind": "text",
+          "optional": true,
+          "py_name": "custom_position_y"
+        }
+      ],
+      "source_name": "customImageOverlay"
+    },
+    "dark_mode": {
+      "doc": "[Appearance] Set Appearance to Dark",
+      "fixed": {
+        "operation": "set",
+        "style": "dark"
+      },
+      "identifier": "appearance",
+      "output": null,
+      "params": [],
+      "source_name": "darkMode"
+    },
+    "date": {
+      "doc": "[Dates] Date: Create a date value from `date`. Example: October 5, 2022.",
+      "fixed": {
+        "WFDateActionMode": "Specified Date"
+      },
+      "identifier": "date",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFDateActionDate",
+          "kind": "text",
+          "optional": false,
+          "py_name": "date"
+        }
+      ],
+      "source_name": "date"
+    },
+    "define": {
+      "doc": "Define: Returns the definition of the word.",
+      "fixed": {},
+      "identifier": "showdefinition",
+      "output": "text",
+      "params": [
+        {
+          "enum": null,
+          "key": "Word",
+          "kind": "text",
+          "optional": false,
+          "py_name": "word"
+        }
+      ],
+      "source_name": "define"
+    },
+    "delete_files": {
+      "doc": "[Files & Folders] Delete Files: Delete a file or multiple files.",
+      "fixed": {},
+      "identifier": "file.delete",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFInput",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "input"
+        },
+        {
+          "enum": null,
+          "key": "WFDeleteImmediatelyDelete",
+          "kind": "bool",
+          "optional": true,
+          "py_name": "immediately"
+        }
+      ],
+      "source_name": "deleteFiles"
+    },
+    "delete_photos": {
+      "doc": "Delete Photos",
+      "fixed": {},
+      "identifier": "deletephotos",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "photos",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "photos"
+        }
+      ],
+      "source_name": "deletePhotos"
+    },
+    "detect_language": {
+      "doc": "Detect Language: Detect the language of the text in `input`.",
+      "fixed": {},
+      "identifier": "detectlanguage",
+      "output": "text",
+      "params": [
+        {
+          "enum": null,
+          "key": "WFInput",
+          "kind": "text",
+          "optional": false,
+          "py_name": "input"
+        }
+      ],
+      "source_name": "detectLanguage"
+    },
+    "dismiss_siri": {
+      "doc": "[System] Dismiss Siri: Dismisses Siri.",
+      "fixed": {},
+      "identifier": "dismisssiri",
+      "output": null,
+      "params": [],
+      "source_name": "dismissSiri"
+    },
+    "display_sleep": {
+      "doc": "[Device] Display Sleep: Only puts the Mac display to sleep, device remains awake.",
+      "fixed": {},
+      "identifier": "displaysleep",
+      "output": null,
+      "params": [],
+      "source_name": "displaySleep"
+    },
+    "dnd_off": {
+      "doc": "[Notifications] Turn Off Do Not Disturb",
+      "fixed": {
+        "Enabled": 0,
+        "FocusModes": {
+          "DisplayString": "Do Not Disturb",
+          "Identifier": "com.apple.donotdisturb.mode.default"
+        }
+      },
+      "identifier": "dnd.set",
+      "output": null,
+      "params": [],
+      "source_name": "DNDOff"
+    },
+    "dnd_on": {
+      "doc": "[Notifications] Turn On Do Not Disturb",
+      "fixed": {
+        "Enabled": 1,
+        "FocusModes": {
+          "DisplayString": "Do Not Disturb",
+          "Identifier": "com.apple.donotdisturb.mode.default"
+        }
+      },
+      "identifier": "dnd.set",
+      "output": null,
+      "params": [],
+      "source_name": "DNDOn"
+    },
+    "download_url": {
+      "doc": "[HTTP] Download URL: Download the contents of a URL.",
+      "fixed": {
+        "WFHTTPMethod": "GET"
+      },
+      "identifier": "downloadurl",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFURL",
+          "kind": "text",
+          "optional": false,
+          "py_name": "url"
+        },
+        {
+          "enum": null,
+          "key": "WFHTTPHeaders",
+          "kind": "dictionary",
+          "optional": true,
+          "py_name": "headers"
+        }
+      ],
+      "source_name": "downloadURL"
+    },
+    "edit_event": {
+      "doc": "[Calendars] Edit Event: Edit a detail of an event. Provide an event, a detail to modify, and a new value for that detail.",
+      "fixed": {},
+      "identifier": "setters.calendarevents",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFInput",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "event"
+        },
+        {
+          "enum": "EditEventDetailValue",
+          "key": "WFContentItemPropertyName",
+          "kind": "enum",
+          "optional": false,
+          "py_name": "detail"
+        },
+        {
+          "enum": null,
+          "key": "WFCalendarEventContentItemStartDate",
+          "kind": "text",
+          "optional": false,
+          "py_name": "new_value"
+        }
+      ],
+      "source_name": "editEvent"
+    },
+    "encode_audio": {
+      "doc": "[Audio] Encode Audio: Encode audio to a different format and/or speed.",
+      "fixed": {
+        "WFMediaAudioOnly": true
+      },
+      "identifier": "encodemedia",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFMedia",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "audio"
+        },
+        {
+          "enum": "AudioFormatsValue",
+          "key": "WFMediaAudioFormat",
+          "kind": "enum",
+          "optional": true,
+          "py_name": "format"
+        },
+        {
+          "enum": "AudioSpeedsValue",
+          "key": "WFMediaCustomSpeed",
+          "kind": "enum",
+          "optional": true,
+          "py_name": "speed"
+        }
+      ],
+      "source_name": "encodeAudio"
+    },
+    "encode_video": {
+      "doc": "[Video Editing] Encode Video: Encode a video to a different format, size and/or speed.",
+      "fixed": {},
+      "identifier": "encodemedia",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFMedia",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "video"
+        },
+        {
+          "enum": "EncodeVideoSizesValue",
+          "key": "WFMediaSize",
+          "kind": "enum",
+          "optional": true,
+          "py_name": "size"
+        },
+        {
+          "enum": "EncodeVideoSpeedsValue",
+          "key": "WFMediaCustomSpeed",
+          "kind": "enum",
+          "optional": true,
+          "py_name": "speed"
+        },
+        {
+          "enum": null,
+          "key": "WFMediaPreserveTransparency",
+          "kind": "bool",
+          "optional": true,
+          "py_name": "preserve_transparency"
+        }
+      ],
+      "source_name": "encodeVideo"
+    },
+    "expand_url": {
+      "doc": "[URLs] Expand URL: Get the expanded version of a URL. For instance, returns the full URL for a short URL, or the URL which a URL immediately redirects to, etc.",
+      "fixed": {},
+      "identifier": "url.expand",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "URL",
+          "kind": "text",
+          "optional": false,
+          "py_name": "url"
+        }
+      ],
+      "source_name": "expandURL"
+    },
+    "extract_archive": {
+      "doc": "[Archives] Extract Archive: Extract files from the archive `file`.",
+      "fixed": {},
+      "identifier": "unzip",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFArchive",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "file"
+        }
+      ],
+      "source_name": "extractArchive"
+    },
+    "extract_image_text": {
+      "doc": "[Image Editing] Extract Image Text",
+      "fixed": {},
+      "identifier": "extracttextfromimage",
+      "output": "text",
+      "params": [
+        {
+          "enum": null,
+          "key": "WFImage",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "image"
+        }
+      ],
+      "source_name": "extractImageText"
+    },
+    "facetime_call": {
+      "doc": "[Phone] FaceTime Call: Starts a FaceTime audio or video call with the contact.",
+      "fixed": {
+        "WFFaceTimeType": "Video"
+      },
+      "identifier": "com.apple.facetime.facetime",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFFaceTimeContact",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "contact"
+        },
+        {
+          "enum": "FacetimeCallTypeValue",
+          "key": "WFFaceTimeType",
+          "kind": "enum",
+          "optional": true,
+          "py_name": "type"
+        }
+      ],
+      "source_name": "facetimeCall"
+    },
+    "file_request": {
+      "doc": "[HTTP] File Request: Send a `method` file request to `url` with `body` and optional `headers.",
+      "fixed": {
+        "WFHTTPBodyType": "File"
+      },
+      "identifier": "downloadurl",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFURL",
+          "kind": "text",
+          "optional": false,
+          "py_name": "url"
+        },
+        {
+          "enum": "HttpMethodValue",
+          "key": "WFHTTPMethod",
+          "kind": "enum",
+          "optional": true,
+          "py_name": "method"
+        },
+        {
+          "enum": null,
+          "key": "WFRequestVariable",
+          "kind": "dictionary",
+          "optional": true,
+          "py_name": "body"
+        },
+        {
+          "enum": null,
+          "key": "WFHTTPHeaders",
+          "kind": "dictionary",
+          "optional": true,
+          "py_name": "headers"
+        }
+      ],
+      "source_name": "fileRequest"
+    },
+    "file_size": {
+      "doc": "[Files & Folders] File Size: Returns the size of a file.",
+      "fixed": {
+        "WFFileSizeIncludeUnits": false
+      },
+      "identifier": "format.filesize",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFFileSize",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "file"
+        },
+        {
+          "enum": "FileSizeFormatValue",
+          "key": "WFFileSizeFormat",
+          "kind": "enum",
+          "optional": false,
+          "py_name": "format"
+        }
+      ],
+      "source_name": "fileSize"
+    },
+    "filter_contacts": {
+      "doc": "Filter Contacts",
+      "fixed": {},
+      "identifier": "filter.contacts",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFContentItemInputParameter",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "contacts"
+        },
+        {
+          "enum": "ContactDetailValue",
+          "key": "WFContentItemSortProperty",
+          "kind": "enum",
+          "optional": true,
+          "py_name": "sort_by"
+        },
+        {
+          "enum": null,
+          "key": "WFContentItemSortOrder",
+          "kind": "abcSortOrder",
+          "optional": true,
+          "py_name": "sort_order"
+        },
+        {
+          "enum": null,
+          "key": "WFContentItemLimitNumber",
+          "kind": "number",
+          "optional": true,
+          "py_name": "limit"
+        }
+      ],
+      "source_name": "filterContacts"
+    },
+    "find_conversation": {
+      "doc": "[Email & SMS Messaging] Find Conversation: Find SMS/iMessage conversation.",
+      "fixed": {},
+      "identifier": "com.apple.MobileSMS.ConversationEntity",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFContentItemInputParameter",
+          "kind": "text",
+          "optional": false,
+          "py_name": "search"
+        }
+      ],
+      "source_name": "findConversation"
+    },
+    "find_email": {
+      "doc": "[Email & SMS Messaging] Find Email: Find email.",
+      "fixed": {},
+      "identifier": "com.apple.mobilemail.MailMessageEntity",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFContentItemInputParameter",
+          "kind": "text",
+          "optional": false,
+          "py_name": "search"
+        }
+      ],
+      "source_name": "findEmail"
+    },
+    "find_message": {
+      "doc": "[Email & SMS Messaging] Find Message: Find SMS/iMessage message.",
+      "fixed": {},
+      "identifier": "com.apple.MobileSMS.MessageEntity",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFContentItemInputParameter",
+          "kind": "text",
+          "optional": false,
+          "py_name": "search"
+        }
+      ],
+      "source_name": "findMessage"
+    },
+    "flip_image": {
+      "doc": "[Image Editing] Flip Image",
+      "fixed": {},
+      "identifier": "image.flip",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFInput",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "image"
+        },
+        {
+          "enum": "FlipImageDirectionValue",
+          "key": "WFImageFlipDirection",
+          "kind": "enum",
+          "optional": false,
+          "py_name": "direction"
+        }
+      ],
+      "source_name": "flipImage"
+    },
+    "floor": {
+      "doc": "[Rounding] Round Down: Always round a number down to a specified rounding place.",
+      "fixed": {
+        "WFRoundMode": "Always Round Down"
+      },
+      "identifier": "round",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFInput",
+          "kind": "number",
+          "optional": false,
+          "py_name": "number"
+        },
+        {
+          "enum": "RoundingValue",
+          "key": "WFRoundTo",
+          "kind": "enum",
+          "optional": true,
+          "py_name": "round_to"
+        }
+      ],
+      "source_name": "floor"
+    },
+    "form_request": {
+      "doc": "[HTTP] Form Request: Send a `method` request to `url` with `body` and optional `headers.",
+      "fixed": {
+        "WFHTTPBodyType": "Form"
+      },
+      "identifier": "downloadurl",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFURL",
+          "kind": "text",
+          "optional": false,
+          "py_name": "url"
+        },
+        {
+          "enum": "HttpMethodValue",
+          "key": "WFHTTPMethod",
+          "kind": "enum",
+          "optional": true,
+          "py_name": "method"
+        },
+        {
+          "enum": null,
+          "key": "WFFormValues",
+          "kind": "dictionary",
+          "optional": true,
+          "py_name": "body"
+        },
+        {
+          "enum": null,
+          "key": "WFHTTPHeaders",
+          "kind": "dictionary",
+          "optional": true,
+          "py_name": "headers"
+        }
+      ],
+      "source_name": "formRequest"
+    },
+    "format_date": {
+      "doc": "[Formatting] Format Date: Format a date using a standard or custom format.",
+      "fixed": {
+        "WFTimeFormatStyle": "None"
+      },
+      "identifier": "format.date",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFDate",
+          "kind": "text",
+          "optional": false,
+          "py_name": "date"
+        },
+        {
+          "enum": "DateFormatsValue",
+          "key": "WFDateFormatStyle",
+          "kind": "enum",
+          "optional": true,
+          "py_name": "date_format"
+        },
+        {
+          "enum": null,
+          "key": "WFDateFormat",
+          "kind": "text",
+          "optional": true,
+          "py_name": "custom_date_format"
+        }
+      ],
+      "source_name": "formatDate"
+    },
+    "format_number": {
+      "doc": "[Numbers] Format Number: Format number based on decimal place.",
+      "fixed": {},
+      "identifier": "format.number",
+      "output": "number",
+      "params": [
+        {
+          "enum": null,
+          "key": "WFNumber",
+          "kind": "number",
+          "optional": false,
+          "py_name": "number"
+        },
+        {
+          "enum": null,
+          "key": "WFNumberFormatDecimalPlaces",
+          "kind": "number",
+          "optional": true,
+          "py_name": "decimal_places"
+        }
+      ],
+      "source_name": "formatNumber"
+    },
+    "format_time": {
+      "doc": "[Formatting] Format Time: Format a time using a standard or custom format.",
+      "fixed": {
+        "WFDateFormatStyle": "None"
+      },
+      "identifier": "format.date",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFDate",
+          "kind": "text",
+          "optional": false,
+          "py_name": "time"
+        },
+        {
+          "enum": "TimeFormatsValue",
+          "key": "WFTimeFormatStyle",
+          "kind": "enum",
+          "optional": true,
+          "py_name": "time_format"
+        }
+      ],
+      "source_name": "formatTime"
+    },
+    "format_timestamp": {
+      "doc": "[Formatting] Format Timestamp: Format a timestamp using standard formats and/or a custom date format.",
+      "fixed": {},
+      "identifier": "format.date",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFDate",
+          "kind": "text",
+          "optional": false,
+          "py_name": "date"
+        },
+        {
+          "enum": "DateFormatsValue",
+          "key": "WFDateFormatStyle",
+          "kind": "enum",
+          "optional": true,
+          "py_name": "date_format"
+        },
+        {
+          "enum": "TimeFormatsValue",
+          "key": "WFTimeFormatStyle",
+          "kind": "enum",
+          "optional": true,
+          "py_name": "time_format"
+        },
+        {
+          "enum": null,
+          "key": "WFDateFormat",
+          "kind": "text",
+          "optional": true,
+          "py_name": "custom_date_format"
+        }
+      ],
+      "source_name": "formatTimestamp"
+    },
+    "generate_key_points": {
+      "doc": "[Writing Tools] Summarize Text Key Points: Generate a summary of key points of text using Apple Intelligence Writing Tools.",
+      "fixed": {
+        "summaryType": "createKeyPoints"
+      },
+      "identifier": "com.apple.WritingTools.WritingToolsAppIntentsExtension.SummarizeTextIntent",
+      "output": "text",
+      "params": [
+        {
+          "enum": null,
+          "key": "text",
+          "kind": "text",
+          "optional": false,
+          "py_name": "text"
+        }
+      ],
+      "source_name": "generateKeyPoints"
+    },
+    "generate_list": {
+      "doc": "[Writing Tools] Make List From Text: Generate list from text  using Apple Intelligence Writing Tools.",
+      "fixed": {},
+      "identifier": "com.apple.WritingTools.WritingToolsAppIntentsExtension.FormatListIntent",
+      "output": "text",
+      "params": [
+        {
+          "enum": null,
+          "key": "text",
+          "kind": "text",
+          "optional": false,
+          "py_name": "text"
+        }
+      ],
+      "source_name": "generateList"
+    },
+    "generate_proofread": {
+      "doc": "[Writing Tools] Proofread Text: Generate a proofread version of text using Apple Intelligence Writing Tools.",
+      "fixed": {},
+      "identifier": "com.apple.WritingTools.WritingToolsAppIntentsExtension.ProofreadIntent",
+      "output": "text",
+      "params": [
+        {
+          "enum": null,
+          "key": "text",
+          "kind": "text",
+          "optional": false,
+          "py_name": "text"
+        }
+      ],
+      "source_name": "generateProofread"
+    },
+    "generate_rewrite": {
+      "doc": "[Writing Tools] Rewrite Text: Generate a rewritten version of text using Apple Intelligence Writing Tools.",
+      "fixed": {},
+      "identifier": "com.apple.WritingTools.WritingToolsAppIntentsExtension.RewriteTextIntent",
+      "output": "text",
+      "params": [
+        {
+          "enum": null,
+          "key": "text",
+          "kind": "text",
+          "optional": false,
+          "py_name": "text"
+        }
+      ],
+      "source_name": "generateRewrite"
+    },
+    "generate_summary": {
+      "doc": "[Writing Tools] Summarize Text: Generate a summarized version of text using Apple Intelligence Writing Tools.",
+      "fixed": {},
+      "identifier": "com.apple.WritingTools.WritingToolsAppIntentsExtension.SummarizeTextIntent",
+      "output": "text",
+      "params": [
+        {
+          "enum": null,
+          "key": "text",
+          "kind": "text",
+          "optional": false,
+          "py_name": "text"
+        }
+      ],
+      "source_name": "generateSummary"
+    },
+    "generate_table": {
+      "doc": "[Writing Tools] Make Table From Text: Generate table from text using Apple Intelligence Writing Tools.",
+      "fixed": {},
+      "identifier": "com.apple.WritingTools.WritingToolsAppIntentsExtension.FormatTableIntent",
+      "output": "text",
+      "params": [
+        {
+          "enum": null,
+          "key": "text",
+          "kind": "text",
+          "optional": false,
+          "py_name": "text"
+        }
+      ],
+      "source_name": "generateTable"
+    },
+    "get_addresses": {
+      "doc": "[Addresses] Get Addresses: Get addresses from `input`.",
+      "fixed": {},
+      "identifier": "detect.address",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFInput",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "input"
+        }
+      ],
+      "source_name": "getAddresses"
+    },
+    "get_alarms": {
+      "doc": "[Alarms] Get Alarms: Returns all of the alarms on the device.",
+      "fixed": {},
+      "identifier": "com.apple.mobiletimer-framework.MobileTimerIntents.MTGetAlarmsIntent",
+      "output": null,
+      "params": [],
+      "source_name": "getAlarms"
+    },
+    "get_all_wallpapers": {
+      "doc": "[Wallpaper] Get Wallpapers: Get device wallpapers.",
+      "fixed": {},
+      "identifier": "posters.get",
+      "output": "array",
+      "params": [],
+      "source_name": "getAllWallpapers"
+    },
+    "get_apps": {
+      "doc": "Get Apps: Get list of applications.",
+      "fixed": {},
+      "identifier": "filter.apps",
+      "output": "array",
+      "params": [],
+      "source_name": "getApps"
+    },
+    "get_article": {
+      "doc": "[Articles] Get Article: Get article from webpage.",
+      "fixed": {},
+      "identifier": "getarticle",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFWebPage",
+          "kind": "text",
+          "optional": false,
+          "py_name": "webpage"
+        }
+      ],
+      "source_name": "getArticle"
+    },
+    "get_article_detail": {
+      "doc": "[Articles] Get Article Detail: Get a detail about an article.",
+      "fixed": {},
+      "identifier": "properties.articles",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFInput",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "article"
+        },
+        {
+          "enum": null,
+          "key": "WFContentItemPropertyName",
+          "kind": "text",
+          "optional": false,
+          "py_name": "detail"
+        }
+      ],
+      "source_name": "getArticleDetail"
+    },
+    "get_battery_level": {
+      "doc": "[Battery] Get Battery Level: Get the current level of charge of the device battery.",
+      "fixed": {},
+      "identifier": "getbatterylevel",
+      "output": null,
+      "params": [],
+      "source_name": "getBatteryLevel"
+    },
+    "get_cellular_detail": {
+      "doc": "[Wireless] Get Cellular Detail: Get a detail of the current Cellular network.",
+      "fixed": {
+        "WFNetworkDetailsNetwork": "Cellular"
+      },
+      "identifier": "getwifi",
+      "output": null,
+      "params": [
+        {
+          "enum": "CellularDetailValue",
+          "key": "WFCellularDetail",
+          "kind": "enum",
+          "optional": false,
+          "py_name": "detail"
+        }
+      ],
+      "source_name": "getCellularDetail"
+    },
+    "get_clipboard": {
+      "doc": "[Clipboard] Get Clipboard: Get the contents of the clipboard.",
+      "fixed": {},
+      "identifier": "getclipboard",
+      "output": null,
+      "params": [],
+      "source_name": "getClipboard"
+    },
+    "get_contact_detail": {
+      "doc": "Get Detail of Contact: Get a detail about a contact.",
+      "fixed": {},
+      "identifier": "properties.contacts",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFInput",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "contact"
+        },
+        {
+          "enum": "ContactDetailValue",
+          "key": "WFContentItemPropertyName",
+          "kind": "enum",
+          "optional": false,
+          "py_name": "detail"
+        }
+      ],
+      "source_name": "getContactDetail"
+    },
+    "get_contacts": {
+      "doc": "Get Contacts: Get contacts from input.",
+      "fixed": {},
+      "identifier": "detect.contacts",
+      "output": "array",
+      "params": [
+        {
+          "enum": null,
+          "key": "WFInput",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "input"
+        }
+      ],
+      "source_name": "getContacts"
+    },
+    "get_current_location": {
+      "doc": "Get Current Location",
+      "fixed": {},
+      "identifier": "getcurrentlocation",
+      "output": null,
+      "params": [],
+      "source_name": "getCurrentLocation"
+    },
+    "get_current_song": {
+      "doc": "Get Current Song: Gets the currently playing song.",
+      "fixed": {},
+      "identifier": "getcurrentsong",
+      "output": null,
+      "params": [],
+      "source_name": "getCurrentSong"
+    },
+    "get_current_url": {
+      "doc": "[Safari] Get Current URL: Get current URL in Safari.",
+      "fixed": {},
+      "identifier": "safari.geturl",
+      "output": null,
+      "params": [],
+      "source_name": "getCurrentURL"
+    },
+    "get_current_weather": {
+      "doc": "[Weather] Get Current Weather: Get the current weather for a location.",
+      "fixed": {},
+      "identifier": "weather.currentconditions",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFWeatherCustomLocation",
+          "kind": "text",
+          "optional": true,
+          "py_name": "location"
+        }
+      ],
+      "source_name": "getCurrentWeather"
+    },
+    "get_dates": {
+      "doc": "[Dates] Get Dates: Get dates from input.",
+      "fixed": {},
+      "identifier": "detect.date",
+      "output": "array",
+      "params": [
+        {
+          "enum": null,
+          "key": "WFInput",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "input"
+        }
+      ],
+      "source_name": "getDates"
+    },
+    "get_device_detail": {
+      "doc": "Get Device Detail: Get a detail about current device.",
+      "fixed": {},
+      "identifier": "getdevicedetails",
+      "output": null,
+      "params": [
+        {
+          "enum": "DeviceDetailValue",
+          "key": "WFDeviceDetail",
+          "kind": "enum",
+          "optional": false,
+          "py_name": "detail"
+        }
+      ],
+      "source_name": "getDeviceDetail"
+    },
+    "get_device_usage": {
+      "doc": "[Screen Time] Get Website & App Activity",
+      "fixed": {},
+      "identifier": "com.apple.intelligenceplatform.IntelligencePlatform.IntelligencePlatformDataActionsAppIntentsExtension.CalculateAppUsageIntent",
+      "output": null,
+      "params": [
+        {
+          "enum": "DeviceUsageTypeValue",
+          "key": "activityType",
+          "kind": "enum",
+          "optional": true,
+          "py_name": "usage_type"
+        },
+        {
+          "enum": null,
+          "key": "selectedDevice",
+          "kind": "variable",
+          "optional": true,
+          "py_name": "device"
+        },
+        {
+          "enum": "UsageDurationValue",
+          "key": "during",
+          "kind": "enum",
+          "optional": true,
+          "py_name": "during"
+        },
+        {
+          "enum": null,
+          "key": "startTime",
+          "kind": "text",
+          "optional": true,
+          "py_name": "start_time"
+        },
+        {
+          "enum": null,
+          "key": "endTime",
+          "kind": "text",
+          "optional": true,
+          "py_name": "end_time"
+        }
+      ],
+      "source_name": "getDeviceUsage"
+    },
+    "get_dictionary": {
+      "doc": "[Dictionaries] Get Dictionary: Get the dictionary from `input`.",
+      "fixed": {},
+      "identifier": "detect.dictionary",
+      "output": "dictionary",
+      "params": [
+        {
+          "enum": null,
+          "key": "WFInput",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "input"
+        }
+      ],
+      "source_name": "getDictionary"
+    },
+    "get_emails": {
+      "doc": "[Email] Get Emails: Get emails from input.",
+      "fixed": {},
+      "identifier": "detect.emailaddress",
+      "output": "array",
+      "params": [
+        {
+          "enum": null,
+          "key": "WFInput",
+          "kind": "text",
+          "optional": false,
+          "py_name": "input"
+        }
+      ],
+      "source_name": "getEmails"
+    },
+    "get_emoji_name": {
+      "doc": "Get Name of Emoji: Detects emoji in the text and returns its name.",
+      "fixed": {},
+      "identifier": "getnameofemoji",
+      "output": "text",
+      "params": [
+        {
+          "enum": null,
+          "key": "WFInput",
+          "kind": "text",
+          "optional": false,
+          "py_name": "emoji"
+        }
+      ],
+      "source_name": "getEmojiName"
+    },
+    "get_event_detail": {
+      "doc": "[Calendars] Get Event Detail: Get a detail of an event.",
+      "fixed": {},
+      "identifier": "properties.calendarevents",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFInput",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "event"
+        },
+        {
+          "enum": "EventDetailValue",
+          "key": "WFContentItemPropertyName",
+          "kind": "enum",
+          "optional": false,
+          "py_name": "detail"
+        }
+      ],
+      "source_name": "getEventDetail"
+    },
+    "get_external_ip": {
+      "doc": "[IP Address] Get External IP: Get the users external IP address.",
+      "fixed": {
+        "WFIPAddressSourceOption": "External"
+      },
+      "identifier": "getipaddress",
+      "output": "text",
+      "params": [
+        {
+          "enum": "IpTypesValue",
+          "key": "WFIPAddressTypeOption",
+          "kind": "enum",
+          "optional": true,
+          "py_name": "type"
+        }
+      ],
+      "source_name": "getExternalIP"
+    },
+    "get_file": {
+      "doc": "[Files & Folders] Get File: Get file from a path in the Shortcuts folder.",
+      "fixed": {},
+      "identifier": "documentpicker.open",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFGetFilePath",
+          "kind": "text",
+          "optional": false,
+          "py_name": "path"
+        },
+        {
+          "enum": null,
+          "key": "WFFileErrorIfNotFound",
+          "kind": "bool",
+          "optional": true,
+          "py_name": "error_if_not_found"
+        }
+      ],
+      "source_name": "getFile"
+    },
+    "get_file_detail": {
+      "doc": "[Files & Folders] Get File Detail: Get a detail about a file.",
+      "fixed": {},
+      "identifier": "properties.files",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFFolder",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "file"
+        },
+        {
+          "enum": "FileDetailValue",
+          "key": "WFContentItemPropertyName",
+          "kind": "enum",
+          "optional": false,
+          "py_name": "detail"
+        }
+      ],
+      "source_name": "getFileDetail"
+    },
+    "get_file_link": {
+      "doc": "[Files & Folders] Get File Link: Get a link for the provided file.",
+      "fixed": {},
+      "identifier": "file.getlink",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFFile",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "file"
+        }
+      ],
+      "source_name": "getFileLink"
+    },
+    "get_first_item": {
+      "doc": "[Lists] Get First Item: Get first item in a list.",
+      "fixed": {
+        "WFItemSpecifier": "First Item"
+      },
+      "identifier": "getitemfromlist",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFInput",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "list"
+        }
+      ],
+      "source_name": "getFirstItem"
+    },
+    "get_focus_mode": {
+      "doc": "[Notifications] Get Focus Mode: Get the current Focus Mode.",
+      "fixed": {},
+      "identifier": "dnd.getfocus",
+      "output": null,
+      "params": [],
+      "source_name": "getFocusMode"
+    },
+    "get_gifs": {
+      "doc": "[Giphy] Get GIFs from Giphy: Gets a number of GIFs from Giphy for a search query.",
+      "fixed": {
+        "WFGiphyShowPicker": false
+      },
+      "identifier": "giphy",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFGiphyQuery",
+          "kind": "text",
+          "optional": false,
+          "py_name": "query"
+        },
+        {
+          "enum": null,
+          "key": "WFGiphyLimit",
+          "kind": "number",
+          "optional": true,
+          "py_name": "gifs"
+        }
+      ],
+      "source_name": "getGifs"
+    },
+    "get_halfway_point": {
+      "doc": "[Maps] Get Halfway Point: Get the halfway point between two locations.",
+      "fixed": {},
+      "identifier": "gethalfwaypoint",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFGetHalfwayPointFirstLocation",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "first_location"
+        },
+        {
+          "enum": null,
+          "key": "WFGetHalfwayPointSecondLocation",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "second_location"
+        }
+      ],
+      "source_name": "getHalfwayPoint"
+    },
+    "get_holiday_date": {
+      "doc": "[Dates] Get Holiday Date: Get the date of a holiday, optionally specifically for a few past or future years.",
+      "fixed": {},
+      "identifier": "date",
+      "output": "text",
+      "params": [
+        {
+          "enum": "HolidayValue",
+          "key": "WFDateActionMode",
+          "kind": "enum",
+          "optional": false,
+          "py_name": "holiday"
+        },
+        {
+          "enum": "EventOccurrenceModeValue",
+          "key": "WFEventOccurrenceMode",
+          "kind": "enum",
+          "optional": true,
+          "py_name": "occurrence_mode"
+        },
+        {
+          "enum": "HolidayYearValue",
+          "key": "WFEventOccurrenceSpecifiedYear",
+          "kind": "enum",
+          "optional": true,
+          "py_name": "for_year"
+        }
+      ],
+      "source_name": "getHolidayDate"
+    },
+    "get_image_detail": {
+      "doc": "[Image Editing] Get Image Detail: Get a detail about an image.",
+      "fixed": {},
+      "identifier": "properties.images",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFInput",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "image"
+        },
+        {
+          "enum": "ImageDetailValue",
+          "key": "WFContentItemPropertyName",
+          "kind": "enum",
+          "optional": false,
+          "py_name": "detail"
+        }
+      ],
+      "source_name": "getImageDetail"
+    },
+    "get_image_frames": {
+      "doc": "[GIFs] Get Image Frames: Get frames from a GIF.",
+      "fixed": {},
+      "identifier": "getframesfromimage",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFImage",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "image"
+        }
+      ],
+      "source_name": "getImageFrames"
+    },
+    "get_images": {
+      "doc": "[Image Editing] Get Images: Detect images in input",
+      "fixed": {},
+      "identifier": "detect.images",
+      "output": "array",
+      "params": [
+        {
+          "enum": null,
+          "key": "WFInput",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "input"
+        }
+      ],
+      "source_name": "getImages"
+    },
+    "get_keys": {
+      "doc": "[Dictionaries] Get Keys from Dictionary: Get only the keys from the `dictionary`.",
+      "fixed": {
+        "WFGetDictionaryValueType": "All Keys"
+      },
+      "identifier": "getvalueforkey",
+      "output": "array",
+      "params": [
+        {
+          "enum": null,
+          "key": "WFInput",
+          "kind": "dictionary",
+          "optional": false,
+          "py_name": "dictionary"
+        }
+      ],
+      "source_name": "getKeys"
+    },
+    "get_last_import": {
+      "doc": "Get Last Import",
+      "fixed": {},
+      "identifier": "getlatestphotoimport",
+      "output": null,
+      "params": [],
+      "source_name": "getLastImport"
+    },
+    "get_last_item": {
+      "doc": "[Lists] Get Last Item: Get the last item in a list.",
+      "fixed": {
+        "WFItemSpecifier": "Last Item"
+      },
+      "identifier": "getitemfromlist",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFInput",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "list"
+        }
+      ],
+      "source_name": "getLastItem"
+    },
+    "get_latest_bursts": {
+      "doc": "Get Latest Bursts",
+      "fixed": {},
+      "identifier": "getlatestbursts",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFGetLatestPhotoCount",
+          "kind": "number",
+          "optional": false,
+          "py_name": "count"
+        }
+      ],
+      "source_name": "getLatestBursts"
+    },
+    "get_latest_live_photos": {
+      "doc": "Get Latest Live Photos",
+      "fixed": {},
+      "identifier": "getlatestlivephotos",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFGetLatestPhotoCount",
+          "kind": "number",
+          "optional": false,
+          "py_name": "count"
+        }
+      ],
+      "source_name": "getLatestLivePhotos"
+    },
+    "get_latest_photos": {
+      "doc": "Get Latest Photos",
+      "fixed": {},
+      "identifier": "getlastphoto",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFGetLatestPhotoCount",
+          "kind": "number",
+          "optional": false,
+          "py_name": "count"
+        },
+        {
+          "enum": null,
+          "key": "WFGetLatestPhotosActionIncludeScreenshots",
+          "kind": "bool",
+          "optional": true,
+          "py_name": "include_screenshots"
+        }
+      ],
+      "source_name": "getLatestPhotos"
+    },
+    "get_latest_screenshots": {
+      "doc": "Get Latest Screenshots",
+      "fixed": {},
+      "identifier": "getlastscreenshot",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFGetLatestPhotoCount",
+          "kind": "number",
+          "optional": false,
+          "py_name": "count"
+        }
+      ],
+      "source_name": "getLatestScreenshots"
+    },
+    "get_latest_videos": {
+      "doc": "Get Latest Videos",
+      "fixed": {},
+      "identifier": "getlastvideo",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFGetLatestPhotoCount",
+          "kind": "number",
+          "optional": false,
+          "py_name": "count"
+        }
+      ],
+      "source_name": "getLatestVideos"
+    },
+    "get_list_item": {
+      "doc": "[Lists] Get List Item: Get item from `list` at `index`. Keep in mind Shortcuts starts counting indexes at 1.",
+      "fixed": {
+        "WFItemSpecifier": "Item At Index"
+      },
+      "identifier": "getitemfromlist",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFInput",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "list"
+        },
+        {
+          "enum": null,
+          "key": "WFItemIndex",
+          "kind": "number",
+          "optional": false,
+          "py_name": "index"
+        }
+      ],
+      "source_name": "getListItem"
+    },
+    "get_list_items": {
+      "doc": "[Lists] Get List Items: Get items from a `list` between two indexes. Keep in mind Shortcuts starts counting indexes at 1.",
+      "fixed": {
+        "WFItemSpecifier": "Items in Range"
+      },
+      "identifier": "getitemfromlist",
+      "output": "array",
+      "params": [
+        {
+          "enum": null,
+          "key": "WFInput",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "list"
+        },
+        {
+          "enum": null,
+          "key": "WFItemRangeStart",
+          "kind": "number",
+          "optional": false,
+          "py_name": "start"
+        },
+        {
+          "enum": null,
+          "key": "WFItemRangeEnd",
+          "kind": "number",
+          "optional": false,
+          "py_name": "end"
+        }
+      ],
+      "source_name": "getListItems"
+    },
+    "get_local_ip": {
+      "doc": "[IP Address] Get Local IP: Get the users local IP address.",
+      "fixed": {
+        "WFIPAddressSourceOption": "Local"
+      },
+      "identifier": "getipaddress",
+      "output": "text",
+      "params": [
+        {
+          "enum": "IpTypesValue",
+          "key": "WFIPAddressTypeOption",
+          "kind": "enum",
+          "optional": true,
+          "py_name": "type"
+        }
+      ],
+      "source_name": "getLocalIP"
+    },
+    "get_location_detail": {
+      "doc": "Get Location Detail: Get a detail about a location.",
+      "fixed": {},
+      "identifier": "properties.locations",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFInput",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "location"
+        },
+        {
+          "enum": "LocationDetailValue",
+          "key": "WFContentItemPropertyName",
+          "kind": "enum",
+          "optional": false,
+          "py_name": "detail"
+        }
+      ],
+      "source_name": "getLocationDetail"
+    },
+    "get_maps_link": {
+      "doc": "[Maps] Get Maps Link: Get a link for a location.",
+      "fixed": {},
+      "identifier": "getmapslink",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFInput",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "location"
+        }
+      ],
+      "source_name": "getMapsLink"
+    },
+    "get_match_group": {
+      "doc": "[Regular Expressions] Get Match Group: Get match group at `index` in `matches`.",
+      "fixed": {
+        "WFGetGroupType": "Group At Index"
+      },
+      "identifier": "text.match.getgroup",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "matches",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "matches"
+        },
+        {
+          "enum": null,
+          "key": "WFGroupIndex",
+          "kind": "number",
+          "optional": false,
+          "py_name": "index"
+        }
+      ],
+      "source_name": "getMatchGroup"
+    },
+    "get_match_groups": {
+      "doc": "[Regular Expressions] Get Match Groups: Get all groups in `matches`.",
+      "fixed": {
+        "WFGetGroupType": "All Groups"
+      },
+      "identifier": "text.match.getgroup",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "matches",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "matches"
+        }
+      ],
+      "source_name": "getMatchGroups"
+    },
+    "get_music_detail": {
+      "doc": "Get Music Detail: Get a detail about a song.",
+      "fixed": {},
+      "identifier": "properties.music",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFInput",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "music"
+        },
+        {
+          "enum": "MusicDetailValue",
+          "key": "WFContentItemPropertyName",
+          "kind": "enum",
+          "optional": false,
+          "py_name": "detail"
+        }
+      ],
+      "source_name": "getMusicDetail"
+    },
+    "get_name": {
+      "doc": "[Items] Get Name: Get the name of an item.",
+      "fixed": {},
+      "identifier": "getitemname",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFInput",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "item"
+        }
+      ],
+      "source_name": "getName"
+    },
+    "get_numbers": {
+      "doc": "[Numbers] Get Numbers: Get numbers from input.",
+      "fixed": {},
+      "identifier": "detect.number",
+      "output": "number",
+      "params": [
+        {
+          "enum": null,
+          "key": "WFInput",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "input"
+        }
+      ],
+      "source_name": "getNumbers"
+    },
+    "get_object_of_class": {
+      "doc": "Get Object of Class: Get the object of `class` from a variable.",
+      "fixed": {},
+      "identifier": "getclassaction",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "Class",
+          "kind": "text",
+          "optional": false,
+          "py_name": "class_"
+        },
+        {
+          "enum": null,
+          "key": "Input",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "from_"
+        }
+      ],
+      "source_name": "getObjectOfClass"
+    },
+    "get_on_screen_content": {
+      "doc": "Get On-Screen Content: Get the content currently on-screen.",
+      "fixed": {},
+      "identifier": "getonscreencontent",
+      "output": null,
+      "params": [],
+      "source_name": "getOnScreenContent"
+    },
+    "get_orientation": {
+      "doc": "Get Orientation: Get the current orientation of the device.",
+      "fixed": {},
+      "identifier": "com.apple.ShortcutsActions.GetOrientationAction",
+      "output": "text",
+      "params": [],
+      "source_name": "getOrientation"
+    },
+    "get_parent_directory": {
+      "doc": "[Files & Folders] Get Parent Directory: Get the parent directory of the input directory.",
+      "fixed": {},
+      "identifier": "getparentdirectory",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFInput",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "input"
+        }
+      ],
+      "source_name": "getParentDirectory"
+    },
+    "get_phone_numbers": {
+      "doc": "[Phone] Get Phone Numbers: Get phone numbers from input.",
+      "fixed": {},
+      "identifier": "detect.phonenumber",
+      "output": "array",
+      "params": [
+        {
+          "enum": null,
+          "key": "WFInput",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "input"
+        }
+      ],
+      "source_name": "getPhoneNumbers"
+    },
+    "get_playlist_songs": {
+      "doc": "[Playlists] Get Playlist: Gets songs from a playlist",
+      "fixed": {},
+      "identifier": "get.playlist",
+      "output": "array",
+      "params": [
+        {
+          "enum": null,
+          "key": "WFPlaylistName",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "playlist_name"
+        }
+      ],
+      "source_name": "getPlaylistSongs"
+    },
+    "get_podcast_detail": {
+      "doc": "[Podcasts] Get Podcast Detail",
+      "fixed": {},
+      "identifier": "properties.podcastshow",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFInput",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "podcast"
+        },
+        {
+          "enum": "PodcastDetailValue",
+          "key": "WFContentItemPropertyName",
+          "kind": "enum",
+          "optional": false,
+          "py_name": "detail"
+        }
+      ],
+      "source_name": "getPodcastDetail"
+    },
+    "get_podcasts": {
+      "doc": "[Podcasts] Get Podcasts: Get users podcasts.",
+      "fixed": {},
+      "identifier": "getpodcastsfromlibrary",
+      "output": null,
+      "params": [],
+      "source_name": "getPodcasts"
+    },
+    "get_random_item": {
+      "doc": "[Lists] Get Random Item: Get random item from list.",
+      "fixed": {
+        "WFItemSpecifier": "Random Item"
+      },
+      "identifier": "getitemfromlist",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFInput",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "list"
+        }
+      ],
+      "source_name": "getRandomItem"
+    },
+    "get_rich_text_from_html": {
+      "doc": "[Rich Text] Make Rich Text from HTML",
+      "fixed": {},
+      "identifier": "getrichtextfromhtml",
+      "output": "text",
+      "params": [
+        {
+          "enum": null,
+          "key": "WFHTML",
+          "kind": "text",
+          "optional": false,
+          "py_name": "html"
+        }
+      ],
+      "source_name": "getRichTextFromHTML"
+    },
+    "get_rich_text_from_markdown": {
+      "doc": "[Rich Text] Get Rich Text from Markdown",
+      "fixed": {},
+      "identifier": "getrichtextfrommarkdown",
+      "output": "text",
+      "params": [
+        {
+          "enum": null,
+          "key": "WFInput",
+          "kind": "text",
+          "optional": false,
+          "py_name": "markdown"
+        }
+      ],
+      "source_name": "getRichTextFromMarkdown"
+    },
+    "get_rss": {
+      "doc": "[RSS] Get RSS: Get RSS feed contents at URL. Limited by number of items.",
+      "fixed": {},
+      "identifier": "rss",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFRSSItemQuantity",
+          "kind": "number",
+          "optional": false,
+          "py_name": "items"
+        },
+        {
+          "enum": null,
+          "key": "WFRSSFeedURL",
+          "kind": "text",
+          "optional": false,
+          "py_name": "url"
+        }
+      ],
+      "source_name": "getRSS"
+    },
+    "get_rss_feeds": {
+      "doc": "[RSS] Get RSS Feeds: Get feeds from multiple URLs.",
+      "fixed": {},
+      "identifier": "rss.extract",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFURLs",
+          "kind": "text",
+          "optional": false,
+          "py_name": "urls"
+        }
+      ],
+      "source_name": "getRSSFeeds"
+    },
+    "get_selected_files": {
+      "doc": "[Files & Folders] Get Selected",
+      "fixed": {},
+      "identifier": "finder.getselectedfiles",
+      "output": null,
+      "params": [],
+      "source_name": "getSelectedFiles"
+    },
+    "get_shazam_detail": {
+      "doc": "[Shazam] Get Shazam Detail: Get a detail about a Shazam result.",
+      "fixed": {},
+      "identifier": "properties.shazam",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFInput",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "input"
+        },
+        {
+          "enum": "ShazamDetailValue",
+          "key": "WFContentItemPropertyName",
+          "kind": "enum",
+          "optional": false,
+          "py_name": "detail"
+        }
+      ],
+      "source_name": "getShazamDetail"
+    },
+    "get_shortcut_detail": {
+      "doc": "Get Shortcut Detail: Get a detail about a Shortcut.",
+      "fixed": {},
+      "identifier": "properties.workflow",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFInput",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "shortcut"
+        },
+        {
+          "enum": "ShortcutDetailValue",
+          "key": "WFContentItemPropertyName",
+          "kind": "enum",
+          "optional": false,
+          "py_name": "detail"
+        }
+      ],
+      "source_name": "getShortcutDetail"
+    },
+    "get_shortcuts": {
+      "doc": "Get Shortcuts: Get all of the Shortcuts on the device.",
+      "fixed": {},
+      "identifier": "getmyworkflows",
+      "output": "array",
+      "params": [],
+      "source_name": "getShortcuts"
+    },
+    "get_text": {
+      "doc": "Get Text: Get text from input.",
+      "fixed": {},
+      "identifier": "detect.text",
+      "output": "text",
+      "params": [
+        {
+          "enum": null,
+          "key": "WFInput",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "input"
+        }
+      ],
+      "source_name": "getText"
+    },
+    "get_text_from_image": {
+      "doc": "Get Text from Image",
+      "fixed": {},
+      "identifier": "extracttextfromimage",
+      "output": "text",
+      "params": [
+        {
+          "enum": null,
+          "key": "WFImage",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "image"
+        }
+      ],
+      "source_name": "getTextFromImage"
+    },
+    "get_ur_ls": {
+      "doc": "[URLs] Get URLs: Get URLs from `input`.",
+      "fixed": {},
+      "identifier": "detect.link",
+      "output": "array",
+      "params": [
+        {
+          "enum": null,
+          "key": "WFInput",
+          "kind": "text",
+          "optional": false,
+          "py_name": "input"
+        }
+      ],
+      "source_name": "getURLs"
+    },
+    "get_url_detail": {
+      "doc": "[URLs] Get URL Detail: Get a detail about a URL.",
+      "fixed": {},
+      "identifier": "geturlcomponent",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFURL",
+          "kind": "text",
+          "optional": false,
+          "py_name": "url"
+        },
+        {
+          "enum": "UrlDetailValue",
+          "key": "WFURLComponent",
+          "kind": "enum",
+          "optional": false,
+          "py_name": "detail"
+        }
+      ],
+      "source_name": "getURLDetail"
+    },
+    "get_url_headers": {
+      "doc": "[URLs] Get URL Headers: Get the headers from a URL.",
+      "fixed": {},
+      "identifier": "url.getheaders",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFInput",
+          "kind": "text",
+          "optional": false,
+          "py_name": "url"
+        }
+      ],
+      "source_name": "getURLHeaders"
+    },
+    "get_value": {
+      "doc": "[Dictionaries] Get Value from Dictionary: For constants only, otherwise `dictionary['key']` syntax should be used.",
+      "fixed": {
+        "WFGetDictionaryValueType": "Value"
+      },
+      "identifier": "getvalueforkey",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFInput",
+          "kind": "dictionary",
+          "optional": false,
+          "py_name": "dictionary"
+        },
+        {
+          "enum": null,
+          "key": "WFDictionaryKey",
+          "kind": "text",
+          "optional": false,
+          "py_name": "key"
+        }
+      ],
+      "source_name": "getValue"
+    },
+    "get_values": {
+      "doc": "[Dictionaries] Get Values from Dictionary: Get only the values from the `dictionary`.",
+      "fixed": {
+        "WFGetDictionaryValueType": "All Values"
+      },
+      "identifier": "getvalueforkey",
+      "output": "array",
+      "params": [
+        {
+          "enum": null,
+          "key": "WFInput",
+          "kind": "dictionary",
+          "optional": false,
+          "py_name": "dictionary"
+        }
+      ],
+      "source_name": "getValues"
+    },
+    "get_wallpaper": {
+      "doc": "[Wallpaper] Get Wallpaper: Get current device wallpaper.",
+      "fixed": {
+        "WFPosterType": "Current"
+      },
+      "identifier": "posters.get",
+      "output": null,
+      "params": [],
+      "source_name": "getWallpaper"
+    },
+    "get_weather_detail": {
+      "doc": "[Weather] Get Weather Detail: Get a detail about a weather forecast.",
+      "fixed": {},
+      "identifier": "properties.weather.conditions",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFInput",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "weather"
+        },
+        {
+          "enum": "WeatherDetailValue",
+          "key": "WFContentItemPropertyName",
+          "kind": "enum",
+          "optional": false,
+          "py_name": "detail"
+        }
+      ],
+      "source_name": "getWeatherDetail"
+    },
+    "get_weather_forecast": {
+      "doc": "[Weather] Get Weather Forecast: Get various types of weather forecast for a location.",
+      "fixed": {},
+      "identifier": "weather.forecast",
+      "output": null,
+      "params": [
+        {
+          "enum": "WeatherForecastTypesValue",
+          "key": "WFWeatherForecastType",
+          "kind": "enum",
+          "optional": true,
+          "py_name": "type"
+        },
+        {
+          "enum": null,
+          "key": "WFInput",
+          "kind": "text",
+          "optional": true,
+          "py_name": "location"
+        }
+      ],
+      "source_name": "getWeatherForecast"
+    },
+    "get_web_page_detail": {
+      "doc": "[Safari] Get Webpage Detail: Get a detail about a provided webpage.",
+      "fixed": {},
+      "identifier": "properties.safariwebpage",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFInput",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "webpage"
+        },
+        {
+          "enum": "WebpageDetailValue",
+          "key": "WFContentItemPropertyName",
+          "kind": "enum",
+          "optional": false,
+          "py_name": "detail"
+        }
+      ],
+      "source_name": "getWebPageDetail"
+    },
+    "get_webpage_contents": {
+      "doc": "[Safari] Get Webpage Contents: Get contents of Webpage from Safari.",
+      "fixed": {},
+      "identifier": "getwebpagecontents",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFInput",
+          "kind": "text",
+          "optional": false,
+          "py_name": "url"
+        }
+      ],
+      "source_name": "getWebpageContents"
+    },
+    "get_wifi_detail": {
+      "doc": "[Wireless] Get WiFi Detail: Get a detail of the current WiFi network.",
+      "fixed": {
+        "WFNetworkDetailsNetwork": "Wi-Fi"
+      },
+      "identifier": "getwifi",
+      "output": null,
+      "params": [
+        {
+          "enum": "WifiDetailValue",
+          "key": "WFWiFiDetail",
+          "kind": "enum",
+          "optional": false,
+          "py_name": "detail"
+        }
+      ],
+      "source_name": "getWifiDetail"
+    },
+    "hash": {
+      "doc": "Hash: Generate a hash of type using input.",
+      "fixed": {},
+      "identifier": "hash",
+      "output": "text",
+      "params": [
+        {
+          "enum": null,
+          "key": "WFInput",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "input"
+        },
+        {
+          "enum": "HashTypeValue",
+          "key": "WFHashType",
+          "kind": "enum",
+          "optional": true,
+          "py_name": "type"
+        }
+      ],
+      "source_name": "hash"
+    },
+    "is_charging": {
+      "doc": "[Battery] Is Charging: Determines if the device is currently charging.",
+      "fixed": {
+        "Subject": "Is Charging"
+      },
+      "identifier": "getbatterylevel",
+      "output": "bool",
+      "params": [],
+      "source_name": "isCharging"
+    },
+    "is_online": {
+      "doc": "[IP Address] Is Online: Determine if the user is online. Alias for get Get External IP.",
+      "fixed": {
+        "WFIPAddressSourceOption": "External",
+        "WFIPAddressTypeOption": "IPv4"
+      },
+      "identifier": "getipaddress",
+      "output": null,
+      "params": [],
+      "source_name": "isOnline"
+    },
+    "json_request": {
+      "doc": "[HTTP] JSON Request: Send a `method` JSON request to `url` with `body` and optional `headers.",
+      "fixed": {
+        "WFHTTPBodyType": "JSON"
+      },
+      "identifier": "downloadurl",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFURL",
+          "kind": "text",
+          "optional": false,
+          "py_name": "url"
+        },
+        {
+          "enum": "HttpMethodValue",
+          "key": "WFHTTPMethod",
+          "kind": "enum",
+          "optional": true,
+          "py_name": "method"
+        },
+        {
+          "enum": null,
+          "key": "WFJSONValues",
+          "kind": "dictionary",
+          "optional": true,
+          "py_name": "body"
+        },
+        {
+          "enum": null,
+          "key": "WFHTTPHeaders",
+          "kind": "dictionary",
+          "optional": true,
+          "py_name": "headers"
+        }
+      ],
+      "source_name": "jsonRequest"
+    },
+    "light_mode": {
+      "doc": "[Appearance] Set Appearance to Light",
+      "fixed": {
+        "operation": "set",
+        "style": "light"
+      },
+      "identifier": "appearance",
+      "output": null,
+      "params": [],
+      "source_name": "lightMode"
+    },
+    "listen": {
+      "doc": "Dictation: Transcribes user recorded audio to text, optionally in another language.",
+      "fixed": {},
+      "identifier": "dictatetext",
+      "output": "text",
+      "params": [
+        {
+          "enum": "StopListeningTriggerValue",
+          "key": "WFDictateTextStopListening",
+          "kind": "enum",
+          "optional": true,
+          "py_name": "stop_listening"
+        },
+        {
+          "enum": null,
+          "key": "WFSpeechLanguage",
+          "kind": "language",
+          "optional": true,
+          "py_name": "language"
+        }
+      ],
+      "source_name": "listen"
+    },
+    "location": {
+      "doc": "Location: Create a location value.",
+      "fixed": {},
+      "identifier": "location",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFLocation",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "location"
+        }
+      ],
+      "source_name": "location"
+    },
+    "lock_screen": {
+      "doc": "Lock Screen: Lock the device screen.",
+      "fixed": {},
+      "identifier": "lockscreen",
+      "output": null,
+      "params": [],
+      "source_name": "lockScreen"
+    },
+    "lowercase": {
+      "doc": "[Text Editing] Lowercase: Transforms the text to all lowercase.",
+      "fixed": {
+        "Show-text": true,
+        "WFCaseType": "lowercase"
+      },
+      "identifier": "text.changecase",
+      "output": "text",
+      "params": [
+        {
+          "enum": null,
+          "key": "text",
+          "kind": "text",
+          "optional": false,
+          "py_name": "text"
+        }
+      ],
+      "source_name": "lowercase"
+    },
+    "magnifier_describe": {
+      "doc": "[Magnifier] Describe This",
+      "fixed": {},
+      "identifier": "com.apple.Magnifier.DescribeThisIntent",
+      "output": null,
+      "params": [],
+      "source_name": "magnifierDescribe"
+    },
+    "magnifier_point_and_speak": {
+      "doc": "[Magnifier] Start Point & Speak",
+      "fixed": {},
+      "identifier": "com.apple.Magnifier.PointAndSpeakIntent",
+      "output": null,
+      "params": [],
+      "source_name": "magnifierPointAndSpeak"
+    },
+    "magnifier_reader": {
+      "doc": "[Magnifier] Open Reader",
+      "fixed": {},
+      "identifier": "com.apple.Magnifier.ReaderModeIntent",
+      "output": null,
+      "params": [],
+      "source_name": "magnifierReader"
+    },
+    "make_archive": {
+      "doc": "[Archives] Make Archive: Create an archive of `files` named `name` in `format`.",
+      "fixed": {},
+      "identifier": "makezip",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFInput",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "files"
+        },
+        {
+          "enum": "ArchiveFormatValue",
+          "key": "WFArchiveFormat",
+          "kind": "enum",
+          "optional": true,
+          "py_name": "format"
+        },
+        {
+          "enum": null,
+          "key": "WFZIPName",
+          "kind": "text",
+          "optional": true,
+          "py_name": "name"
+        }
+      ],
+      "source_name": "makeArchive"
+    },
+    "make_disk_image": {
+      "doc": "Make Disk Image: Create a new disk image.",
+      "fixed": {
+        "SizeToFit": true
+      },
+      "identifier": "makediskimage",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "VolumeName",
+          "kind": "text",
+          "optional": false,
+          "py_name": "name"
+        },
+        {
+          "enum": null,
+          "key": "WFInput",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "contents"
+        },
+        {
+          "enum": null,
+          "key": "EncryptImage",
+          "kind": "bool",
+          "optional": true,
+          "py_name": "encrypt"
+        }
+      ],
+      "source_name": "makeDiskImage"
+    },
+    "make_gif": {
+      "doc": "[GIFs] Make GIF",
+      "fixed": {
+        "WFMakeGIFActionAutoSize": true,
+        "WFMakeGIFActionLoopEnabled": true
+      },
+      "identifier": "makegif",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFInput",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "input"
+        },
+        {
+          "enum": null,
+          "key": "WFMakeGIFActionDelayTime",
+          "kind": "text",
+          "optional": true,
+          "py_name": "delay"
+        },
+        {
+          "enum": null,
+          "key": "WFMakeGIFActionLoopCount",
+          "kind": "number",
+          "optional": true,
+          "py_name": "loops"
+        },
+        {
+          "enum": null,
+          "key": "WFMakeGIFActionManualSizeWidth",
+          "kind": "text",
+          "optional": true,
+          "py_name": "width"
+        },
+        {
+          "enum": null,
+          "key": "WFMakeGIFActionManualSizeHeight",
+          "kind": "text",
+          "optional": true,
+          "py_name": "height"
+        }
+      ],
+      "source_name": "makeGIF"
+    },
+    "make_html": {
+      "doc": "[Rich Text] Make HTML: Make HTML from Rich Text.",
+      "fixed": {},
+      "identifier": "gethtmlfromrichtext",
+      "output": "text",
+      "params": [
+        {
+          "enum": null,
+          "key": "WFInput",
+          "kind": "text",
+          "optional": false,
+          "py_name": "input"
+        },
+        {
+          "enum": null,
+          "key": "WFMakeFullDocument",
+          "kind": "bool",
+          "optional": true,
+          "py_name": "make_full_document"
+        }
+      ],
+      "source_name": "makeHTML"
+    },
+    "make_image_from_pdf_page": {
+      "doc": "Make Image from PDF Page: Returns an image of the provided PDF.",
+      "fixed": {},
+      "identifier": "makeimagefrompdfpage",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFInput",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "pdf"
+        },
+        {
+          "enum": "ColorSpaceValue",
+          "key": "WFMakeImageFromPDFPageColorspace",
+          "kind": "enum",
+          "optional": true,
+          "py_name": "color_space"
+        },
+        {
+          "enum": null,
+          "key": "WFMakeImageFromPDFPageResolution",
+          "kind": "text",
+          "optional": true,
+          "py_name": "page_resolution"
+        }
+      ],
+      "source_name": "makeImageFromPDFPage"
+    },
+    "make_image_from_rich_text": {
+      "doc": "[Image Editing] Make Image from Rich Text",
+      "fixed": {},
+      "identifier": "makeimagefromrichtext",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFInput",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "pdf"
+        },
+        {
+          "enum": null,
+          "key": "WFWidth",
+          "kind": "text",
+          "optional": false,
+          "py_name": "width"
+        },
+        {
+          "enum": null,
+          "key": "WFHeight",
+          "kind": "text",
+          "optional": false,
+          "py_name": "height"
+        }
+      ],
+      "source_name": "makeImageFromRichText"
+    },
+    "make_markdown": {
+      "doc": "[Rich Text] Make Markdown: Make Markdown from Rich Text.",
+      "fixed": {},
+      "identifier": "getmarkdownfromrichtext",
+      "output": "text",
+      "params": [
+        {
+          "enum": null,
+          "key": "WFInput",
+          "kind": "text",
+          "optional": false,
+          "py_name": "rich_text"
+        }
+      ],
+      "source_name": "makeMarkdown"
+    },
+    "make_pdf": {
+      "doc": "Make PDF: Make a PDF file using the provided input.",
+      "fixed": {},
+      "identifier": "makepdf",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFInput",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "input"
+        },
+        {
+          "enum": null,
+          "key": "WFPDFIncludeMargin",
+          "kind": "bool",
+          "optional": true,
+          "py_name": "include_margin"
+        },
+        {
+          "enum": "PdfMergeBehaviorsValue",
+          "key": "WFPDFDocumentMergeBehavior",
+          "kind": "enum",
+          "optional": true,
+          "py_name": "merge_behavior"
+        }
+      ],
+      "source_name": "makePDF"
+    },
+    "make_qr_code": {
+      "doc": "[QR Codes] Make QR Code",
+      "fixed": {},
+      "identifier": "generatebarcode",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFText",
+          "kind": "text",
+          "optional": false,
+          "py_name": "input"
+        },
+        {
+          "enum": "QrCodeErrorCorrectionValue",
+          "key": "WFQRErrorCorrectionLevel",
+          "kind": "enum",
+          "optional": true,
+          "py_name": "error_correction"
+        },
+        {
+          "enum": null,
+          "key": "WFQRForegroundColor",
+          "kind": "color",
+          "optional": true,
+          "py_name": "foreground_color"
+        },
+        {
+          "enum": null,
+          "key": "WFQRBackgroundColor",
+          "kind": "color",
+          "optional": true,
+          "py_name": "background_color"
+        }
+      ],
+      "source_name": "makeQRCode"
+    },
+    "make_shortcut": {
+      "doc": "Make Shortcut: Create a shortcut.",
+      "fixed": {},
+      "identifier": "com.apple.shortcuts.CreateWorkflowAction",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "name",
+          "kind": "text",
+          "optional": false,
+          "py_name": "name"
+        },
+        {
+          "enum": null,
+          "key": "OpenWhenRun",
+          "kind": "bool",
+          "optional": true,
+          "py_name": "open"
+        }
+      ],
+      "source_name": "makeShortcut"
+    },
+    "make_sized_disk_image": {
+      "doc": "Make Sized Disk Image: Create a new disk image of a specific size.",
+      "fixed": {
+        "SizeToFit": false
+      },
+      "identifier": "makediskimage",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "VolumeName",
+          "kind": "text",
+          "optional": false,
+          "py_name": "name"
+        },
+        {
+          "enum": null,
+          "key": "WFInput",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "contents"
+        },
+        {
+          "enum": null,
+          "key": "ImageSize",
+          "kind": "#storageUnit",
+          "optional": true,
+          "py_name": "disk_size"
+        },
+        {
+          "enum": null,
+          "key": "EncryptImage",
+          "kind": "bool",
+          "optional": true,
+          "py_name": "encrypt"
+        }
+      ],
+      "source_name": "makeSizedDiskImage"
+    },
+    "make_spoken_audio": {
+      "doc": "Make Spoken Audio: Creates custom spoken audio from text with controls for rate and pitch.",
+      "fixed": {},
+      "identifier": "makespokenaudiofromtext",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFInput",
+          "kind": "text",
+          "optional": false,
+          "py_name": "text"
+        },
+        {
+          "enum": null,
+          "key": "WFSpeakTextRate",
+          "kind": "number",
+          "optional": true,
+          "py_name": "rate"
+        },
+        {
+          "enum": null,
+          "key": "WFSpeakTextPitch",
+          "kind": "number",
+          "optional": true,
+          "py_name": "pitch"
+        }
+      ],
+      "source_name": "makeSpokenAudio"
+    },
+    "make_video_from_gif": {
+      "doc": "[GIFs] Make Video From GIF",
+      "fixed": {},
+      "identifier": "makevideofromgif",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFInputGIF",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "gif"
+        },
+        {
+          "enum": null,
+          "key": "WFMakeVideoFromGIFActionLoopCount",
+          "kind": "number",
+          "optional": true,
+          "py_name": "loops"
+        }
+      ],
+      "source_name": "makeVideoFromGIF"
+    },
+    "markup": {
+      "doc": "[Editing] Markup: Opens document in a markup editor.",
+      "fixed": {},
+      "identifier": "avairyeditphoto",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFDocument",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "document"
+        }
+      ],
+      "source_name": "markup"
+    },
+    "mask_image": {
+      "doc": "[Image Editing] Mask Image: Mask an image with another image.",
+      "fixed": {},
+      "identifier": "image.mask",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFInput",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "image"
+        },
+        {
+          "enum": "MaskImageTypeValue",
+          "key": "WFMaskType",
+          "kind": "enum",
+          "optional": false,
+          "py_name": "type"
+        },
+        {
+          "enum": null,
+          "key": "WFMaskCornerRadius",
+          "kind": "text",
+          "optional": true,
+          "py_name": "radius"
+        }
+      ],
+      "source_name": "maskImage"
+    },
+    "match_text": {
+      "doc": "[Regular Expressions] Match Text: Use regular expressions to match text.",
+      "fixed": {},
+      "identifier": "text.match",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFMatchTextPattern",
+          "kind": "text",
+          "optional": false,
+          "py_name": "regex_pattern"
+        },
+        {
+          "enum": null,
+          "key": "text",
+          "kind": "text",
+          "optional": false,
+          "py_name": "text"
+        },
+        {
+          "enum": null,
+          "key": "WFMatchTextCaseSensitive",
+          "kind": "bool",
+          "optional": true,
+          "py_name": "case_sensitive"
+        }
+      ],
+      "source_name": "matchText"
+    },
+    "move_window": {
+      "doc": "[Windows] Move Window: Move a window to a defined position.",
+      "fixed": {},
+      "identifier": "movewindow",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFWindow",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "window"
+        },
+        {
+          "enum": "WindowPositionValue",
+          "key": "WFPosition",
+          "kind": "enum",
+          "optional": false,
+          "py_name": "position"
+        },
+        {
+          "enum": null,
+          "key": "WFBringToFront",
+          "kind": "bool",
+          "optional": true,
+          "py_name": "bring_to_front"
+        }
+      ],
+      "source_name": "moveWindow"
+    },
+    "must_output": {
+      "doc": "[Output] Must Output: Stop and output `output`. Respond with response if there is nowhere to output.",
+      "fixed": {
+        "WFNoOutputSurfaceBehavior": "Respond"
+      },
+      "identifier": "output",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFOutput",
+          "kind": "text",
+          "optional": false,
+          "py_name": "output"
+        },
+        {
+          "enum": null,
+          "key": "WFResponse",
+          "kind": "text",
+          "optional": false,
+          "py_name": "response"
+        }
+      ],
+      "source_name": "mustOutput"
+    },
+    "nothing": {
+      "doc": "Nothing: Clear the current output.",
+      "fixed": {},
+      "identifier": "nothing",
+      "output": null,
+      "params": [],
+      "source_name": "nothing"
+    },
+    "number": {
+      "doc": "Number: Create a number value.",
+      "fixed": {},
+      "identifier": "number",
+      "output": "number",
+      "params": [
+        {
+          "enum": null,
+          "key": "WFNumberActionNumber",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "number"
+        }
+      ],
+      "source_name": "number"
+    },
+    "open_file": {
+      "doc": "[Files & Folders] Open File: Open a file.",
+      "fixed": {},
+      "identifier": "openin",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFInput",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "file"
+        },
+        {
+          "enum": null,
+          "key": "WFOpenInAskWhenRun",
+          "kind": "bool",
+          "optional": true,
+          "py_name": "ask_when_run"
+        }
+      ],
+      "source_name": "openFile"
+    },
+    "open_in_maps": {
+      "doc": "[Maps] Open in Maps: Open a location in maps.",
+      "fixed": {},
+      "identifier": "searchmaps",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFInput",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "location"
+        }
+      ],
+      "source_name": "openInMaps"
+    },
+    "open_note": {
+      "doc": "[Notes] Open Note: Open note in the Notes app.",
+      "fixed": {},
+      "identifier": "shownote",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFInput",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "note"
+        }
+      ],
+      "source_name": "openNote"
+    },
+    "open_reminders_list": {
+      "doc": "[Reminders] Open Reminders List",
+      "fixed": {},
+      "identifier": "showlist",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFList",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "list"
+        }
+      ],
+      "source_name": "openRemindersList"
+    },
+    "open_url": {
+      "doc": "[URLs] Open URL: Open URL in default browser.",
+      "fixed": {
+        "Show-WFInput": true
+      },
+      "identifier": "openurl",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFInput",
+          "kind": "text",
+          "optional": false,
+          "py_name": "url"
+        }
+      ],
+      "source_name": "openURL"
+    },
+    "open_x_callback_url": {
+      "doc": "[URLs] Open X-Callback URL",
+      "fixed": {},
+      "identifier": "openxcallbackurl",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFXCallbackURL",
+          "kind": "text",
+          "optional": false,
+          "py_name": "url"
+        }
+      ],
+      "source_name": "openXCallbackURL"
+    },
+    "optimize_pdf": {
+      "doc": "Optimize PDF: Returns a compressed version of the PDF.",
+      "fixed": {},
+      "identifier": "compresspdf",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFInput",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "pdf_file"
+        }
+      ],
+      "source_name": "optimizePDF"
+    },
+    "output": {
+      "doc": "[Output] Stop and Output: Stop and output `output`. Do nothing if there is nowhere to output.",
+      "fixed": {},
+      "identifier": "output",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFOutput",
+          "kind": "text",
+          "optional": false,
+          "py_name": "output"
+        }
+      ],
+      "source_name": "output"
+    },
+    "output_or_clipboard": {
+      "doc": "[Output] Output or Copy to Clipboard: Stop and output `output`. Copy to the clipboard if there is nowhere to output.",
+      "fixed": {
+        "WFNoOutputSurfaceBehavior": "Copy to Clipboard"
+      },
+      "identifier": "output",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFOutput",
+          "kind": "text",
+          "optional": false,
+          "py_name": "output"
+        }
+      ],
+      "source_name": "outputOrClipboard"
+    },
+    "overlay_image": {
+      "doc": "[Image Editing] Overlay Image: Overlay an image on top of another image.",
+      "fixed": {
+        "WFShouldShowImageEditor": true
+      },
+      "identifier": "overlayimageonimage",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFInput",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "image"
+        },
+        {
+          "enum": null,
+          "key": "WFImage",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "overlay_image"
+        }
+      ],
+      "source_name": "overlayImage"
+    },
+    "pause": {
+      "doc": "[Playback] Pause: Press pause.",
+      "fixed": {
+        "WFPlayPauseBehavior": "Pause"
+      },
+      "identifier": "pausemusic",
+      "output": null,
+      "params": [],
+      "source_name": "pause"
+    },
+    "play": {
+      "doc": "[Playback] Play: Press play.",
+      "fixed": {
+        "WFPlayPauseBehavior": "Play"
+      },
+      "identifier": "pausemusic",
+      "output": null,
+      "params": [],
+      "source_name": "play"
+    },
+    "play_later": {
+      "doc": "[Playback] Play Next: Add music to the end of the queue.",
+      "fixed": {
+        "WFWhenToPlay": "Later"
+      },
+      "identifier": "addmusictoupnext",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFMusic",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "music"
+        }
+      ],
+      "source_name": "playLater"
+    },
+    "play_music": {
+      "doc": "Play Music: Set music to play with modes for shuffle and repeat.",
+      "fixed": {},
+      "identifier": "playmusic",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFMediaItems",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "music"
+        },
+        {
+          "enum": "ShuffleModeValue",
+          "key": "WFPlayMusicActionShuffle",
+          "kind": "enum",
+          "optional": true,
+          "py_name": "shuffle"
+        },
+        {
+          "enum": "RepeatModeValue",
+          "key": "WFPlayMusicActionRepeat",
+          "kind": "enum",
+          "optional": true,
+          "py_name": "repeat"
+        }
+      ],
+      "source_name": "playMusic"
+    },
+    "play_next": {
+      "doc": "[Playback] Play Next: Add music to play next in the queue.",
+      "fixed": {
+        "WFWhenToPlay": "Next"
+      },
+      "identifier": "addmusictoupnext",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFMusic",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "music"
+        }
+      ],
+      "source_name": "playNext"
+    },
+    "play_podcast": {
+      "doc": "[Podcasts] Play Podcast",
+      "fixed": {},
+      "identifier": "playpodcast",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFPodcastShow",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "podcast"
+        }
+      ],
+      "source_name": "playPodcast"
+    },
+    "play_sound": {
+      "doc": "[Audio] Play Audio: Play a sound.",
+      "fixed": {},
+      "identifier": "playsound",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFInput",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "input"
+        }
+      ],
+      "source_name": "playSound"
+    },
+    "prepend_to_file": {
+      "doc": "[Files & Folders] Prepend File: Prepend text to a file.",
+      "fixed": {
+        "WFAppendFileWriteMode": "Prepend"
+      },
+      "identifier": "file.append",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFFilePath",
+          "kind": "text",
+          "optional": false,
+          "py_name": "file_path"
+        },
+        {
+          "enum": null,
+          "key": "WFInput",
+          "kind": "text",
+          "optional": false,
+          "py_name": "text"
+        }
+      ],
+      "source_name": "prependToFile"
+    },
+    "print": {
+      "doc": "[Printing] Print: Print input to a printer.",
+      "fixed": {},
+      "identifier": "print",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFInput",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "input"
+        }
+      ],
+      "source_name": "print"
+    },
+    "quicklook": {
+      "doc": "[Output] Quick Look: Preview `input` in Quick Look.",
+      "fixed": {},
+      "identifier": "previewdocument",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFInput",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "input"
+        }
+      ],
+      "source_name": "quicklook"
+    },
+    "random_number": {
+      "doc": "[Numbers] Random Number: Returns a random number between `min` and `max`.",
+      "fixed": {},
+      "identifier": "number.random",
+      "output": "number",
+      "params": [
+        {
+          "enum": null,
+          "key": "WFRandomNumberMinimum",
+          "kind": "number",
+          "optional": false,
+          "py_name": "min"
+        },
+        {
+          "enum": null,
+          "key": "WFRandomNumberMaximum",
+          "kind": "number",
+          "optional": false,
+          "py_name": "max"
+        }
+      ],
+      "source_name": "randomNumber"
+    },
+    "reboot": {
+      "doc": "Reboot: Power off the device, then power it on again.",
+      "fixed": {
+        "WFShutdownMode": "Restart"
+      },
+      "identifier": "reboot",
+      "output": null,
+      "params": [],
+      "source_name": "reboot"
+    },
+    "record_audio": {
+      "doc": "[Audio] Record Audio: Prompt the user to record audio.",
+      "fixed": {},
+      "identifier": "recordaudio",
+      "output": null,
+      "params": [
+        {
+          "enum": "AudioQualityValue",
+          "key": "WFRecordingCompression",
+          "kind": "enum",
+          "optional": true,
+          "py_name": "quality"
+        },
+        {
+          "enum": "AudioStartValue",
+          "key": "WFRecordingStart",
+          "kind": "enum",
+          "optional": true,
+          "py_name": "start"
+        }
+      ],
+      "source_name": "recordAudio"
+    },
+    "remove_background": {
+      "doc": "[Image Editing] Remove Image Background",
+      "fixed": {},
+      "identifier": "image.removebackground",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFInput",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "image"
+        },
+        {
+          "enum": null,
+          "key": "WFCropToBounds",
+          "kind": "bool",
+          "optional": true,
+          "py_name": "crop"
+        }
+      ],
+      "source_name": "removeBackground"
+    },
+    "remove_events": {
+      "doc": "[Calendars] Remove Events: Remove an event.",
+      "fixed": {},
+      "identifier": "removeevents",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFInputEvents",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "events"
+        },
+        {
+          "enum": null,
+          "key": "WFCalendarIncludeFutureEvents",
+          "kind": "bool",
+          "optional": true,
+          "py_name": "include_future_events"
+        }
+      ],
+      "source_name": "removeEvents"
+    },
+    "remove_from_album": {
+      "doc": "Remove Photo from Album",
+      "fixed": {},
+      "identifier": "removefromalbum",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFInput",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "photo"
+        },
+        {
+          "enum": null,
+          "key": "WFRemoveAlbumSelectedGroup",
+          "kind": "text",
+          "optional": false,
+          "py_name": "album"
+        }
+      ],
+      "source_name": "removeFromAlbum"
+    },
+    "remove_reminders": {
+      "doc": "[Reminders] Remove Reminders",
+      "fixed": {},
+      "identifier": "removereminders",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFInputReminders",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "reminders"
+        }
+      ],
+      "source_name": "removeReminders"
+    },
+    "remove_weather_location": {
+      "doc": "[Weather] Remove Location from List: Remove a location from the Weather app.",
+      "fixed": {},
+      "identifier": "com.apple.weather.RemoveSavedLocationIntent",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "entities",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "location"
+        }
+      ],
+      "source_name": "removeWeatherLocation"
+    },
+    "rename": {
+      "doc": "[Files & Folders] Rename File",
+      "fixed": {},
+      "identifier": "file.rename",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFFile",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "file"
+        },
+        {
+          "enum": null,
+          "key": "WFNewFilename",
+          "kind": "text",
+          "optional": false,
+          "py_name": "new_name"
+        }
+      ],
+      "source_name": "rename"
+    },
+    "rename_album": {
+      "doc": "Rename Album",
+      "fixed": {},
+      "identifier": "renamealbum",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "album",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "album"
+        },
+        {
+          "enum": null,
+          "key": "title",
+          "kind": "text",
+          "optional": false,
+          "py_name": "new_title"
+        }
+      ],
+      "source_name": "renameAlbum"
+    },
+    "replace_text": {
+      "doc": "[Text Editing] Replace Text: Replace `find` in `subject`, optionally using a regular expression or case insensitive search.",
+      "fixed": {},
+      "identifier": "text.replace",
+      "output": "text",
+      "params": [
+        {
+          "enum": null,
+          "key": "WFReplaceTextFind",
+          "kind": "text",
+          "optional": false,
+          "py_name": "find"
+        },
+        {
+          "enum": null,
+          "key": "WFReplaceTextReplace",
+          "kind": "text",
+          "optional": false,
+          "py_name": "replacement"
+        },
+        {
+          "enum": null,
+          "key": "WFInput",
+          "kind": "text",
+          "optional": false,
+          "py_name": "subject"
+        },
+        {
+          "enum": null,
+          "key": "WFReplaceTextCaseSensitive",
+          "kind": "bool",
+          "optional": true,
+          "py_name": "case_sensitive"
+        },
+        {
+          "enum": null,
+          "key": "WFReplaceTextRegularExpression",
+          "kind": "bool",
+          "optional": true,
+          "py_name": "reg_exp"
+        }
+      ],
+      "source_name": "replaceText"
+    },
+    "resize_image_by_longest_edge": {
+      "doc": "[Image Editing] Resize Image By Longest Edge",
+      "fixed": {
+        "WFImageResizeKey": "Longest Edge"
+      },
+      "identifier": "image.resize",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFImage",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "image"
+        },
+        {
+          "enum": null,
+          "key": "WFImageResizeLength",
+          "kind": "text",
+          "optional": false,
+          "py_name": "length"
+        }
+      ],
+      "source_name": "resizeImageByLongestEdge"
+    },
+    "resize_image_by_percent": {
+      "doc": "[Image Editing] Resize Image By Percent",
+      "fixed": {
+        "WFImageResizeKey": "Percentage"
+      },
+      "identifier": "image.resize",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFImage",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "image"
+        },
+        {
+          "enum": null,
+          "key": "WFImageResizePercentage",
+          "kind": "text",
+          "optional": false,
+          "py_name": "percentage"
+        }
+      ],
+      "source_name": "resizeImageByPercent"
+    },
+    "resize_window": {
+      "doc": "[Windows] Resize Window: Resize a window to defined size.",
+      "fixed": {},
+      "identifier": "resizewindow",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFWindow",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "window"
+        },
+        {
+          "enum": "WindowSizeValue",
+          "key": "WFConfiguration",
+          "kind": "enum",
+          "optional": false,
+          "py_name": "configuration"
+        }
+      ],
+      "source_name": "resizeWindow"
+    },
+    "reveal": {
+      "doc": "[Files & Folders] Reveal in Finder",
+      "fixed": {},
+      "identifier": "file.reveal",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFFile",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "files"
+        }
+      ],
+      "source_name": "reveal"
+    },
+    "rotate_media": {
+      "doc": "[Image Editing] Rotate Media: Rotate an image or a video",
+      "fixed": {},
+      "identifier": "image.rotate",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFImage",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "media"
+        },
+        {
+          "enum": null,
+          "key": "WFImageRotateAmount",
+          "kind": "text",
+          "optional": false,
+          "py_name": "degrees"
+        }
+      ],
+      "source_name": "rotateMedia"
+    },
+    "round": {
+      "doc": "[Rounding] Round: Rounds number to specified rounding place.",
+      "fixed": {
+        "WFRoundMode": "Normal"
+      },
+      "identifier": "round",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFInput",
+          "kind": "number",
+          "optional": false,
+          "py_name": "number"
+        },
+        {
+          "enum": "RoundingValue",
+          "key": "WFRoundTo",
+          "kind": "enum",
+          "optional": true,
+          "py_name": "round_to"
+        }
+      ],
+      "source_name": "round"
+    },
+    "run": {
+      "doc": "Run Shortcut: Run Shortcut with name `shortcutName`, providing it with `input`.",
+      "fixed": {},
+      "identifier": "runworkflow",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFWorkflowName",
+          "kind": "text",
+          "optional": false,
+          "py_name": "shortcut_name"
+        },
+        {
+          "enum": null,
+          "key": "WFInput",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "input"
+        }
+      ],
+      "source_name": "run"
+    },
+    "run_apple_script": {
+      "doc": "[Scripts] Run Apple Script",
+      "fixed": {},
+      "identifier": "runapplescript",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "Input",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "input"
+        },
+        {
+          "enum": null,
+          "key": "Script",
+          "kind": "text",
+          "optional": false,
+          "py_name": "script"
+        }
+      ],
+      "source_name": "runAppleScript"
+    },
+    "run_java_script_on_webpage": {
+      "doc": "[Safari] Run JavaScript on Webpage: Run some custom JavaScript on the current webpage in Safari.",
+      "fixed": {},
+      "identifier": "runjavascriptonwebpage",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFJavaScript",
+          "kind": "text",
+          "optional": false,
+          "py_name": "javascript"
+        }
+      ],
+      "source_name": "runJavaScriptOnWebpage"
+    },
+    "run_js_automation": {
+      "doc": "[Scripts] Run JavaScript for Automation",
+      "fixed": {},
+      "identifier": "runjavascriptforautomation",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "Input",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "input"
+        },
+        {
+          "enum": null,
+          "key": "Script",
+          "kind": "text",
+          "optional": false,
+          "py_name": "script"
+        }
+      ],
+      "source_name": "runJSAutomation"
+    },
+    "run_shell_script": {
+      "doc": "[Scripts] Run Shell Script",
+      "fixed": {},
+      "identifier": "runshellscript",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "Script",
+          "kind": "text",
+          "optional": false,
+          "py_name": "script"
+        },
+        {
+          "enum": null,
+          "key": "Input",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "input"
+        },
+        {
+          "enum": null,
+          "key": "Shell",
+          "kind": "text",
+          "optional": true,
+          "py_name": "shell"
+        },
+        {
+          "enum": null,
+          "key": "InputMode",
+          "kind": "text",
+          "optional": true,
+          "py_name": "input_mode"
+        }
+      ],
+      "source_name": "runShellScript"
+    },
+    "run_ssh_script": {
+      "doc": "[Server] Run SSH Script: Run an SSH script using connection details.",
+      "fixed": {},
+      "identifier": "runsshscript",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFSSHScript",
+          "kind": "text",
+          "optional": false,
+          "py_name": "script"
+        },
+        {
+          "enum": null,
+          "key": "WFInput",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "input"
+        },
+        {
+          "enum": null,
+          "key": "WFSSHHost",
+          "kind": "text",
+          "optional": false,
+          "py_name": "host"
+        },
+        {
+          "enum": null,
+          "key": "WFSSHPort",
+          "kind": "text",
+          "optional": false,
+          "py_name": "port"
+        },
+        {
+          "enum": null,
+          "key": "WFSSHUser",
+          "kind": "text",
+          "optional": false,
+          "py_name": "user"
+        },
+        {
+          "enum": "SshScriptAuthTypeValue",
+          "key": "WFSSHAuthenticationType",
+          "kind": "enum",
+          "optional": false,
+          "py_name": "auth_type"
+        },
+        {
+          "enum": null,
+          "key": "WFSSHPassword",
+          "kind": "text",
+          "optional": false,
+          "py_name": "password"
+        }
+      ],
+      "source_name": "runSSHScript"
+    },
+    "save_file_prompt": {
+      "doc": "[Files & Folders] Save File Prompt: Prompt the user to choose a location to save the file.",
+      "fixed": {},
+      "identifier": "documentpicker.save",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFInput",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "file"
+        },
+        {
+          "enum": null,
+          "key": "WFSaveFileOverwrite",
+          "kind": "bool",
+          "optional": true,
+          "py_name": "overwrite"
+        }
+      ],
+      "source_name": "saveFilePrompt"
+    },
+    "save_file_to_path": {
+      "doc": "[Files & Folders] Save File: Save contents to a file at the specified path.",
+      "fixed": {
+        "WFAskWhereToSave": false
+      },
+      "identifier": "documentpicker.save",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFFileDestinationPath",
+          "kind": "text",
+          "optional": false,
+          "py_name": "path"
+        },
+        {
+          "enum": null,
+          "key": "WFInput",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "content"
+        },
+        {
+          "enum": null,
+          "key": "WFSaveFileOverwrite",
+          "kind": "bool",
+          "optional": true,
+          "py_name": "overwrite"
+        }
+      ],
+      "source_name": "saveFile"
+    },
+    "save_photo": {
+      "doc": "Save Photo to Album",
+      "fixed": {},
+      "identifier": "savetocameraroll",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFInput",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "image"
+        },
+        {
+          "enum": null,
+          "key": "WFCameraRollSelectedGroup",
+          "kind": "text",
+          "optional": true,
+          "py_name": "album"
+        }
+      ],
+      "source_name": "savePhoto"
+    },
+    "save_to_dropbox": {
+      "doc": "Save File to Dropbox: Save a file to Dropbox. Requires user to setup Dropbox account in Shortcuts app.",
+      "fixed": {
+        "WFAskWhereToSave": false
+      },
+      "identifier": "dropbox.savefile",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFInput",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "file"
+        },
+        {
+          "enum": null,
+          "key": "WFFileDestinationPath",
+          "kind": "text",
+          "optional": false,
+          "py_name": "path"
+        },
+        {
+          "enum": null,
+          "key": "WFSaveFileOverwrite",
+          "kind": "bool",
+          "optional": true,
+          "py_name": "overwrite"
+        }
+      ],
+      "source_name": "saveToDropbox"
+    },
+    "save_to_dropbox_prompt": {
+      "doc": "Save File to Dropbox Prompt: Prompt to save a file to Dropbox. Requires user to setup Dropbox account in Shortcuts app.",
+      "fixed": {
+        "WFAskWhereToSave": true
+      },
+      "identifier": "dropbox.savefile",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFInput",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "file"
+        },
+        {
+          "enum": null,
+          "key": "WFSaveFileOverwrite",
+          "kind": "bool",
+          "optional": true,
+          "py_name": "overwrite"
+        }
+      ],
+      "source_name": "saveToDropboxPrompt"
+    },
+    "search": {
+      "doc": "[Search] Search/Spotlight: Get results from search on iOS or iPadOS, and Spotlight on macOS.",
+      "fixed": {},
+      "identifier": "spotlightsearch",
+      "output": "array",
+      "params": [
+        {
+          "enum": null,
+          "key": "WFInputText",
+          "kind": "text",
+          "optional": false,
+          "py_name": "query"
+        },
+        {
+          "enum": null,
+          "key": "WFSpotlightSearchLimit",
+          "kind": "number",
+          "optional": true,
+          "py_name": "limit"
+        },
+        {
+          "enum": null,
+          "key": "WFSpotlightSearchResultType",
+          "kind": "array",
+          "optional": true,
+          "py_name": "result_type"
+        }
+      ],
+      "source_name": "search"
+    },
+    "search_app_store": {
+      "doc": "Search App Store",
+      "fixed": {},
+      "identifier": "searchappstore",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFSearchTerm",
+          "kind": "text",
+          "optional": false,
+          "py_name": "query"
+        }
+      ],
+      "source_name": "searchAppStore"
+    },
+    "search_giphy": {
+      "doc": "[Giphy] Search Giphy: Gets GIFs from Giphy for a search query.",
+      "fixed": {},
+      "identifier": "giphy",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFGiphyQuery",
+          "kind": "text",
+          "optional": false,
+          "py_name": "query"
+        }
+      ],
+      "source_name": "searchGiphy"
+    },
+    "search_passwords": {
+      "doc": "[Passwords] Search Passwords: Searches passwords in the Passwords app.",
+      "fixed": {},
+      "identifier": "openpasswords",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFShowPasswordsSearchTerm",
+          "kind": "text",
+          "optional": false,
+          "py_name": "query"
+        }
+      ],
+      "source_name": "searchPasswords"
+    },
+    "search_photos": {
+      "doc": "Search Photos",
+      "fixed": {},
+      "identifier": "com.apple.mobileslideshow.PhotosSearchAssistantIntent",
+      "output": "array",
+      "params": [
+        {
+          "enum": null,
+          "key": "criteria",
+          "kind": "text",
+          "optional": false,
+          "py_name": "criteria"
+        }
+      ],
+      "source_name": "searchPhotos"
+    },
+    "search_podcasts": {
+      "doc": "[Podcasts] Search Podcasts",
+      "fixed": {},
+      "identifier": "searchpodcasts",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFSearchTerm",
+          "kind": "text",
+          "optional": false,
+          "py_name": "query"
+        }
+      ],
+      "source_name": "searchPodcasts"
+    },
+    "search_shortcuts": {
+      "doc": "Search Shortcuts: Search the users Shortcuts.",
+      "fixed": {},
+      "identifier": "com.apple.shortcuts.SearchShortcutsAction",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "searchPhrase",
+          "kind": "text",
+          "optional": false,
+          "py_name": "query"
+        }
+      ],
+      "source_name": "searchShortcuts"
+    },
+    "search_voice_memos": {
+      "doc": "[Voice Memos] Search Voice Memos",
+      "fixed": {},
+      "identifier": "com.apple.VoiceMemos.SearchRecordings",
+      "output": "array",
+      "params": [
+        {
+          "enum": null,
+          "key": "searchPhrase",
+          "kind": "text",
+          "optional": false,
+          "py_name": "search"
+        }
+      ],
+      "source_name": "searchVoiceMemos"
+    },
+    "search_web": {
+      "doc": "[Safari] Search Web: Search the web using a provided search engine and query.",
+      "fixed": {},
+      "identifier": "searchweb",
+      "output": null,
+      "params": [
+        {
+          "enum": "SearchEngineValue",
+          "key": "WFSearchWebDestination",
+          "kind": "enum",
+          "optional": false,
+          "py_name": "engine"
+        },
+        {
+          "enum": null,
+          "key": "WFInputText",
+          "kind": "text",
+          "optional": false,
+          "py_name": "query"
+        }
+      ],
+      "source_name": "searchWeb"
+    },
+    "seek": {
+      "doc": "[Playback] Seek: Seek the currently playing media.",
+      "fixed": {},
+      "identifier": "seek",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFTimeInterval",
+          "kind": "#timeDuration",
+          "optional": true,
+          "py_name": "time_interval"
+        },
+        {
+          "enum": "SeekBehaviorValue",
+          "key": "WFSeekBehavior",
+          "kind": "enum",
+          "optional": true,
+          "py_name": "behavior"
+        }
+      ],
+      "source_name": "seek"
+    },
+    "select_contact": {
+      "doc": "Select Contact: Prompt the user to select a contact or multiple contacts. Returns selected contact.",
+      "fixed": {},
+      "identifier": "selectcontacts",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFSelectMultiple",
+          "kind": "bool",
+          "optional": true,
+          "py_name": "multiple"
+        }
+      ],
+      "source_name": "selectContact"
+    },
+    "select_email_address": {
+      "doc": "[Email] Select Email Address: Prompt the user to select an email address from their contacts.",
+      "fixed": {},
+      "identifier": "selectemail",
+      "output": null,
+      "params": [],
+      "source_name": "selectEmailAddress"
+    },
+    "select_file": {
+      "doc": "[Files & Folders] Select File: Prompt the user to select one or optionally multiple files.",
+      "fixed": {},
+      "identifier": "file.select",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "SelectMultiple",
+          "kind": "bool",
+          "optional": true,
+          "py_name": "select_multiple"
+        }
+      ],
+      "source_name": "selectFile"
+    },
+    "select_folder": {
+      "doc": "[Files & Folders] Select Folder: Prompt the user to select one or optionally multiple folders.",
+      "fixed": {
+        "WFPickingMode": "Folders"
+      },
+      "identifier": "file.select",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "SelectMultiple",
+          "kind": "bool",
+          "optional": true,
+          "py_name": "select_multiple"
+        }
+      ],
+      "source_name": "selectFolder"
+    },
+    "select_music": {
+      "doc": "Select Music: Prompt the user to select music.",
+      "fixed": {},
+      "identifier": "exportsong",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFExportSongActionSelectMultiple",
+          "kind": "bool",
+          "optional": true,
+          "py_name": "select_multiple"
+        }
+      ],
+      "source_name": "selectMusic"
+    },
+    "select_phone_number": {
+      "doc": "[Phone] Select Phone Number: Prompt the user to select a phone number from their contacts.",
+      "fixed": {},
+      "identifier": "selectphone",
+      "output": null,
+      "params": [],
+      "source_name": "selectPhoneNumber"
+    },
+    "select_photos": {
+      "doc": "Select Photos: Prompt the user to select from their photo library.",
+      "fixed": {},
+      "identifier": "selectphoto",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFSelectMultiplePhotos",
+          "kind": "bool",
+          "optional": true,
+          "py_name": "select_multiple"
+        }
+      ],
+      "source_name": "selectPhotos"
+    },
+    "send_email": {
+      "doc": "[Email & SMS Messaging] Send Email: Send an email to a contact.",
+      "fixed": {},
+      "identifier": "sendemail",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFSendEmailActionToRecipients",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "contact"
+        },
+        {
+          "enum": null,
+          "key": "WFSendEmailActionFrom",
+          "kind": "text",
+          "optional": false,
+          "py_name": "from_"
+        },
+        {
+          "enum": null,
+          "key": "WFSendEmailActionSubject",
+          "kind": "text",
+          "optional": false,
+          "py_name": "subject"
+        },
+        {
+          "enum": null,
+          "key": "WFSendEmailActionInputAttachments",
+          "kind": "text",
+          "optional": false,
+          "py_name": "body"
+        },
+        {
+          "enum": null,
+          "key": "WFSendEmailActionShowComposeSheet",
+          "kind": "bool",
+          "optional": true,
+          "py_name": "prompt"
+        },
+        {
+          "enum": null,
+          "key": "WFSendEmailActionSaveAsDraft",
+          "kind": "bool",
+          "optional": true,
+          "py_name": "draft"
+        }
+      ],
+      "source_name": "sendEmail"
+    },
+    "send_message": {
+      "doc": "[Email & SMS Messaging] Send Message: Send an SMS/iMessage to a contact.",
+      "fixed": {},
+      "identifier": "sendmessage",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFSendMessageActionRecipients",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "contact"
+        },
+        {
+          "enum": null,
+          "key": "WFSendMessageContent",
+          "kind": "text",
+          "optional": false,
+          "py_name": "message"
+        },
+        {
+          "enum": null,
+          "key": "ShowWhenRun",
+          "kind": "bool",
+          "optional": true,
+          "py_name": "prompt"
+        }
+      ],
+      "source_name": "sendMessage"
+    },
+    "set_airdrop_receiving": {
+      "doc": "[AirDrop] Set AirDrop Receiving: Set the AirDrop receiving setting.",
+      "fixed": {},
+      "identifier": "setairdropreceiving",
+      "output": null,
+      "params": [
+        {
+          "enum": "AirdropReceivingStatesValue",
+          "key": "WFAirDropState",
+          "kind": "enum",
+          "optional": true,
+          "py_name": "state"
+        }
+      ],
+      "source_name": "setAirdropReceiving"
+    },
+    "set_background_sound": {
+      "doc": "Set Background Sound: Set the background sound that plays.",
+      "fixed": {},
+      "identifier": "com.apple.AccessibilityUtilities.AXSettingsShortcuts.AXSetBackgroundSoundIntent",
+      "output": null,
+      "params": [
+        {
+          "enum": "BackgroundSoundValue",
+          "key": "backgroundSound",
+          "kind": "enum",
+          "optional": true,
+          "py_name": "sound"
+        }
+      ],
+      "source_name": "setBackgroundSound"
+    },
+    "set_background_sounds_volume": {
+      "doc": "Set Background Sound Volume",
+      "fixed": {},
+      "identifier": "com.apple.AccessibilityUtilities.AXSettingsShortcuts.AXSetBackgroundSoundVolumeIntent",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "volumeValue",
+          "kind": "float",
+          "optional": false,
+          "py_name": "volume"
+        }
+      ],
+      "source_name": "setBackgroundSoundsVolume"
+    },
+    "set_brightness": {
+      "doc": "[Device] Set Brightness",
+      "fixed": {},
+      "identifier": "setbrightness",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFBrightness",
+          "kind": "float",
+          "optional": false,
+          "py_name": "brightness"
+        }
+      ],
+      "source_name": "setBrightness"
+    },
+    "set_clipboard": {
+      "doc": "[Clipboard] Set Clipboard: Set the contents of the clipboard.",
+      "fixed": {},
+      "identifier": "setclipboard",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFInput",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "value"
+        },
+        {
+          "enum": null,
+          "key": "WFLocalOnly",
+          "kind": "bool",
+          "optional": true,
+          "py_name": "local"
+        },
+        {
+          "enum": null,
+          "key": "WFExpirationDate",
+          "kind": "text",
+          "optional": true,
+          "py_name": "expire"
+        }
+      ],
+      "source_name": "setClipboard"
+    },
+    "set_metadata": {
+      "doc": "[Metadata] Set Media Metadata",
+      "fixed": {
+        "Metadata": true
+      },
+      "identifier": "encodemedia",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFMedia",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "media"
+        },
+        {
+          "enum": null,
+          "key": "WFMetadataArtwork",
+          "kind": "variable",
+          "optional": true,
+          "py_name": "artwork"
+        },
+        {
+          "enum": null,
+          "key": "WFMetadataTitle",
+          "kind": "text",
+          "optional": true,
+          "py_name": "title"
+        },
+        {
+          "enum": null,
+          "key": "WFMetadataArtist",
+          "kind": "text",
+          "optional": true,
+          "py_name": "artist"
+        },
+        {
+          "enum": null,
+          "key": "WFMetadataAlbum",
+          "kind": "text",
+          "optional": true,
+          "py_name": "album"
+        },
+        {
+          "enum": null,
+          "key": "WFMetadataGenre",
+          "kind": "text",
+          "optional": true,
+          "py_name": "genre"
+        },
+        {
+          "enum": null,
+          "key": "WFMetadataYear",
+          "kind": "text",
+          "optional": true,
+          "py_name": "year"
+        }
+      ],
+      "source_name": "setMetadata"
+    },
+    "set_name": {
+      "doc": "[Items] Set Name: Set the name of an item.",
+      "fixed": {},
+      "identifier": "setitemname",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFInput",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "item"
+        },
+        {
+          "enum": null,
+          "key": "WFName",
+          "kind": "text",
+          "optional": false,
+          "py_name": "name"
+        },
+        {
+          "enum": null,
+          "key": "WFDontIncludeFileExtension",
+          "kind": "bool",
+          "optional": true,
+          "py_name": "include_file_extension"
+        }
+      ],
+      "source_name": "setName"
+    },
+    "set_sound_recognition": {
+      "doc": "[Hearing] Set Sound Recognition",
+      "fixed": {},
+      "identifier": "com.apple.AccessibilityUtilities.AXSettingsShortcuts.AXToggleSoundDetectionIntent",
+      "output": null,
+      "params": [
+        {
+          "enum": "SoundRecognitionOperationsValue",
+          "key": "operation",
+          "kind": "enum",
+          "optional": true,
+          "py_name": "operation"
+        }
+      ],
+      "source_name": "setSoundRecognition"
+    },
+    "set_text_size": {
+      "doc": "[Vision] Set Text Size: Sets the system text size.",
+      "fixed": {},
+      "identifier": "com.apple.AccessibilityUtilities.AXSettingsShortcuts.AXSetLargeTextIntent",
+      "output": null,
+      "params": [
+        {
+          "enum": "TextSizesValue",
+          "key": "textSize",
+          "kind": "enum",
+          "optional": false,
+          "py_name": "size"
+        }
+      ],
+      "source_name": "setTextSize"
+    },
+    "set_value": {
+      "doc": "[Dictionaries] Set Value in Dictionary: Set the value of `key` to `value` in `dictionary`.",
+      "fixed": {},
+      "identifier": "setvalueforkey",
+      "output": "dictionary",
+      "params": [
+        {
+          "enum": null,
+          "key": "WFDictionary",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "dictionary"
+        },
+        {
+          "enum": null,
+          "key": "WFDictionaryKey",
+          "kind": "text",
+          "optional": false,
+          "py_name": "key"
+        },
+        {
+          "enum": null,
+          "key": "WFDictionaryValue",
+          "kind": "text",
+          "optional": false,
+          "py_name": "value"
+        }
+      ],
+      "source_name": "setValue"
+    },
+    "set_volume": {
+      "doc": "[Device] Set Volume",
+      "fixed": {},
+      "identifier": "setvolume",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFVolume",
+          "kind": "float",
+          "optional": false,
+          "py_name": "volume"
+        }
+      ],
+      "source_name": "setVolume"
+    },
+    "set_wallpaper": {
+      "doc": "[Wallpaper] Set Wallpaper: Sets the device wallpaper to `input`.",
+      "fixed": {},
+      "identifier": "wallpaper.set",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFInput",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "input"
+        }
+      ],
+      "source_name": "setWallpaper"
+    },
+    "share": {
+      "doc": "Share: Prompt the user to share `input`.",
+      "fixed": {},
+      "identifier": "share",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFInput",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "input"
+        }
+      ],
+      "source_name": "share"
+    },
+    "show": {
+      "doc": "[Output] Show Result: Show `input`.",
+      "fixed": {},
+      "identifier": "showresult",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "Text",
+          "kind": "text",
+          "optional": false,
+          "py_name": "input"
+        }
+      ],
+      "source_name": "show"
+    },
+    "show_in_calendar": {
+      "doc": "[Calendars] Open Event in Calendar: Show `event` in the calendar app.",
+      "fixed": {},
+      "identifier": "showincalendar",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFEvent",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "event"
+        }
+      ],
+      "source_name": "showInCalendar"
+    },
+    "show_ini_tunes": {
+      "doc": "Show In iTunes",
+      "fixed": {},
+      "identifier": "showinstore",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFProduct",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "product"
+        }
+      ],
+      "source_name": "showIniTunes"
+    },
+    "show_notification": {
+      "doc": "[Notifications] Show Notification: Shows a custom notification message.",
+      "fixed": {},
+      "identifier": "notification",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFNotificationActionBody",
+          "kind": "text",
+          "optional": false,
+          "py_name": "body"
+        },
+        {
+          "enum": null,
+          "key": "WFNotificationActionTitle",
+          "kind": "text",
+          "optional": true,
+          "py_name": "title"
+        },
+        {
+          "enum": null,
+          "key": "WFNotificationActionSound",
+          "kind": "bool",
+          "optional": true,
+          "py_name": "play_sound"
+        },
+        {
+          "enum": null,
+          "key": "WFInput",
+          "kind": "variable",
+          "optional": true,
+          "py_name": "attachment"
+        }
+      ],
+      "source_name": "showNotification"
+    },
+    "show_quick_note": {
+      "doc": "[Notes] Show Quick Note: Show quick note.",
+      "fixed": {},
+      "identifier": "com.apple.mobilenotes.ShowQuickNoteIntent",
+      "output": null,
+      "params": [],
+      "source_name": "showQuickNote"
+    },
+    "show_webpage": {
+      "doc": "[Safari] Show Webpage: Show webpage using Safari.",
+      "fixed": {},
+      "identifier": "showwebpage",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFURL",
+          "kind": "text",
+          "optional": false,
+          "py_name": "url"
+        },
+        {
+          "enum": null,
+          "key": "WFEnterSafariReader",
+          "kind": "bool",
+          "optional": true,
+          "py_name": "use_reader"
+        }
+      ],
+      "source_name": "showWebpage"
+    },
+    "shutdown": {
+      "doc": "Shut Down: Power off the device.",
+      "fixed": {},
+      "identifier": "reboot",
+      "output": null,
+      "params": [],
+      "source_name": "shutdown"
+    },
+    "skip_back": {
+      "doc": "[Playback] Skip Back: Go to the previous song.",
+      "fixed": {
+        "WFSkipBackBehavior": "Previous Song"
+      },
+      "identifier": "skipback",
+      "output": null,
+      "params": [],
+      "source_name": "skipBack"
+    },
+    "skip_fwd": {
+      "doc": "[Playback] Skip Forward: Go to the next song.",
+      "fixed": {},
+      "identifier": "skipforward",
+      "output": null,
+      "params": [],
+      "source_name": "skipFwd"
+    },
+    "sleep": {
+      "doc": "[Device] Sleep: Puts the Mac to sleep.",
+      "fixed": {},
+      "identifier": "sleep",
+      "output": null,
+      "params": [],
+      "source_name": "sleep"
+    },
+    "speak": {
+      "doc": "Speak: Speaks the provided text, optionally in another language.",
+      "fixed": {},
+      "identifier": "speaktext",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFText",
+          "kind": "text",
+          "optional": false,
+          "py_name": "prompt"
+        },
+        {
+          "enum": null,
+          "key": "WFSpeakTextWait",
+          "kind": "bool",
+          "optional": true,
+          "py_name": "wait_until_finished"
+        },
+        {
+          "enum": null,
+          "key": "WFSpeakTextLanguage",
+          "kind": "text",
+          "optional": true,
+          "py_name": "language"
+        }
+      ],
+      "source_name": "speak"
+    },
+    "split_pdf": {
+      "doc": "Split PDF: Splits a PDF into pages.",
+      "fixed": {},
+      "identifier": "splitpdf",
+      "output": "array",
+      "params": [
+        {
+          "enum": null,
+          "key": "WFInput",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "pdf"
+        }
+      ],
+      "source_name": "splitPDF"
+    },
+    "start_screensaver": {
+      "doc": "[Device] Start Screensaver",
+      "fixed": {},
+      "identifier": "startscreensaver",
+      "output": null,
+      "params": [],
+      "source_name": "startScreensaver"
+    },
+    "start_shazam": {
+      "doc": "[Shazam] Start Shazam: Prompt the user to play music for Shazam to recognize. Returns Shazam result.",
+      "fixed": {},
+      "identifier": "shazamMedia",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFShazamMediaActionShowWhenRun",
+          "kind": "bool",
+          "optional": true,
+          "py_name": "show"
+        },
+        {
+          "enum": null,
+          "key": "WFShazamMediaActionErrorIfNotRecognized",
+          "kind": "bool",
+          "optional": true,
+          "py_name": "show_error"
+        }
+      ],
+      "source_name": "startShazam"
+    },
+    "start_timer": {
+      "doc": "[Timers] Start Timer: Creates a new timer.",
+      "fixed": {},
+      "identifier": "timer.start",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFDuration",
+          "kind": "#timeDuration",
+          "optional": true,
+          "py_name": "duration"
+        }
+      ],
+      "source_name": "startTimer"
+    },
+    "statistic": {
+      "doc": "Statistic: Perform a statistical operation on `input`.",
+      "fixed": {},
+      "identifier": "statistics",
+      "output": null,
+      "params": [
+        {
+          "enum": "StatisticOperationsValue",
+          "key": "WFStatisticsOperation",
+          "kind": "enum",
+          "optional": false,
+          "py_name": "operation"
+        },
+        {
+          "enum": null,
+          "key": "WFInput",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "input"
+        }
+      ],
+      "source_name": "statistic"
+    },
+    "stop": {
+      "doc": "Stop Shortcut: Stops the shortcut.",
+      "fixed": {},
+      "identifier": "exit",
+      "output": null,
+      "params": [],
+      "source_name": "stop"
+    },
+    "street_address": {
+      "doc": "[Addresses] Street Address: Create a location value with an address.",
+      "fixed": {},
+      "identifier": "address",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFAddressLine1",
+          "kind": "text",
+          "optional": false,
+          "py_name": "address_line2"
+        },
+        {
+          "enum": null,
+          "key": "WFAddressLine2",
+          "kind": "text",
+          "optional": false,
+          "py_name": "wf_address_line2"
+        },
+        {
+          "enum": null,
+          "key": "WFCity",
+          "kind": "text",
+          "optional": false,
+          "py_name": "city"
+        },
+        {
+          "enum": null,
+          "key": "WFState",
+          "kind": "text",
+          "optional": false,
+          "py_name": "state"
+        },
+        {
+          "enum": null,
+          "key": "WFCountry",
+          "kind": "text",
+          "optional": false,
+          "py_name": "country"
+        },
+        {
+          "enum": null,
+          "key": "WFPostalCode",
+          "kind": "number",
+          "optional": false,
+          "py_name": "zip_code"
+        }
+      ],
+      "source_name": "streetAddress"
+    },
+    "strip_image_metadata": {
+      "doc": "[Image Editing] Strip Image Metadata",
+      "fixed": {
+        "WFImageFormat": "Match Input",
+        "WFImagePreserveMetadata": false
+      },
+      "identifier": "image.convert",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFInput",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "image"
+        }
+      ],
+      "source_name": "stripImageMetadata"
+    },
+    "strip_media_metadata": {
+      "doc": "[Metadata] Strip Media Metadata",
+      "fixed": {
+        "Metadata": true
+      },
+      "identifier": "encodemedia",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFMedia",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "media"
+        }
+      ],
+      "source_name": "stripMediaMetadata"
+    },
+    "take_interactive_screenshot": {
+      "doc": "Take Interactive Screenshot",
+      "fixed": {
+        "WFTakeScreenshotScreenshotType": "Interactive"
+      },
+      "identifier": "takescreenshot",
+      "output": null,
+      "params": [
+        {
+          "enum": "ScreenshotSelectionValue",
+          "key": "WFTakeScreenshotActionInteractiveSelectionType",
+          "kind": "enum",
+          "optional": true,
+          "py_name": "selection"
+        }
+      ],
+      "source_name": "takeInteractiveScreenshot"
+    },
+    "take_photo": {
+      "doc": "[Camera] Take Photo: Prompt the user to take one or more photos.",
+      "fixed": {},
+      "identifier": "takephoto",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFPhotoCount",
+          "kind": "number",
+          "optional": true,
+          "py_name": "count"
+        },
+        {
+          "enum": null,
+          "key": "WFCameraCaptureShowPreview",
+          "kind": "bool",
+          "optional": true,
+          "py_name": "show_preview"
+        }
+      ],
+      "source_name": "takePhoto"
+    },
+    "take_screenshot": {
+      "doc": "Take Screenshot",
+      "fixed": {
+        "WFTakeScreenshotScreenshotType": "Full Screen"
+      },
+      "identifier": "takescreenshot",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFTakeScreenshotMainMonitorOnly",
+          "kind": "bool",
+          "optional": true,
+          "py_name": "main_monitor_only"
+        }
+      ],
+      "source_name": "takeScreenshot"
+    },
+    "take_video": {
+      "doc": "[Camera] Take Photo: Prompt the user to start recording a video.",
+      "fixed": {},
+      "identifier": "takevideo",
+      "output": null,
+      "params": [
+        {
+          "enum": "CameraOrientationValue",
+          "key": "WFCameraCaptureDevice",
+          "kind": "enum",
+          "optional": true,
+          "py_name": "camera"
+        },
+        {
+          "enum": "VideoQualityValue",
+          "key": "WFCameraCaptureQuality",
+          "kind": "enum",
+          "optional": true,
+          "py_name": "quality"
+        },
+        {
+          "enum": "RecordingStartValue",
+          "key": "WFRecordingStart",
+          "kind": "enum",
+          "optional": true,
+          "py_name": "recording_start"
+        }
+      ],
+      "source_name": "takeVideo"
+    },
+    "text": {
+      "doc": "",
+      "fixed": {},
+      "identifier": "gettext",
+      "output": "text",
+      "params": [
+        {
+          "enum": null,
+          "key": "WFTextActionText",
+          "kind": "text",
+          "optional": false,
+          "py_name": "text"
+        }
+      ],
+      "source_name": "text"
+    },
+    "title_case": {
+      "doc": "[Text Editing] Title Case: Capitalizes the text with Title Case.",
+      "fixed": {
+        "Show-text": true,
+        "WFCaseType": "Capitalize with Title Case"
+      },
+      "identifier": "text.changecase",
+      "output": "text",
+      "params": [
+        {
+          "enum": null,
+          "key": "text",
+          "kind": "text",
+          "optional": false,
+          "py_name": "text"
+        }
+      ],
+      "source_name": "titleCase"
+    },
+    "toggle_dnd": {
+      "doc": "[Notifications] Toggle Do Not Disturb",
+      "fixed": {
+        "FocusModes": {
+          "DisplayString": "Do Not Disturb",
+          "Identifier": "com.apple.donotdisturb.mode.default"
+        },
+        "Operation": "Toggle"
+      },
+      "identifier": "dnd.set",
+      "output": null,
+      "params": [],
+      "source_name": "toggleDND"
+    },
+    "toggle_play_pause": {
+      "doc": "[Playback] Toggle Play/Pause",
+      "fixed": {
+        "WFPlayPauseBehavior": "Play/Pause"
+      },
+      "identifier": "pausemusic",
+      "output": null,
+      "params": [],
+      "source_name": "togglePlayPause"
+    },
+    "transcribe_text": {
+      "doc": "Transcribe Audio: Transcribes text from the provided audio.",
+      "fixed": {},
+      "identifier": "com.apple.ShortcutsActions.TranscribeAudioAction",
+      "output": "text",
+      "params": [
+        {
+          "enum": null,
+          "key": "audio",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "audio"
+        }
+      ],
+      "source_name": "transcribeText"
+    },
+    "translate": {
+      "doc": "Translate: Translate text.",
+      "fixed": {},
+      "identifier": "text.translate",
+      "output": "text",
+      "params": [
+        {
+          "enum": null,
+          "key": "WFInputText",
+          "kind": "text",
+          "optional": false,
+          "py_name": "text"
+        },
+        {
+          "enum": null,
+          "key": "WFSelectedLanguage",
+          "kind": "language",
+          "optional": false,
+          "py_name": "to"
+        },
+        {
+          "enum": null,
+          "key": "WFSelectedFromLanguage",
+          "kind": "language",
+          "optional": true,
+          "py_name": "from_"
+        }
+      ],
+      "source_name": "translate"
+    },
+    "trim_video": {
+      "doc": "[Video Editing] Trim Video: Prompts the user to trim the video.",
+      "fixed": {},
+      "identifier": "trimvideo",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFInputMedia",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "video"
+        }
+      ],
+      "source_name": "trimVideo"
+    },
+    "trim_whitespace": {
+      "doc": "[Text Editing] Trim Whitespace: Trim any whitespace from the start and end of `text`.",
+      "fixed": {},
+      "identifier": "text.trimwhitespace",
+      "output": "text",
+      "params": [
+        {
+          "enum": null,
+          "key": "WFInput",
+          "kind": "text",
+          "optional": false,
+          "py_name": "text"
+        }
+      ],
+      "source_name": "trimWhitespace"
+    },
+    "type_of": {
+      "doc": "Get Type: Get the type of input.",
+      "fixed": {},
+      "identifier": "getitemtype",
+      "output": "text",
+      "params": [
+        {
+          "enum": null,
+          "key": "WFInput",
+          "kind": "variable",
+          "optional": false,
+          "py_name": "input"
+        }
+      ],
+      "source_name": "typeOf"
+    },
+    "uppercase": {
+      "doc": "[Text Editing] Uppercase: Transforms the text to all uppercase.",
+      "fixed": {
+        "Show-text": true,
+        "WFCaseType": "UPPERCASE"
+      },
+      "identifier": "text.changecase",
+      "output": "text",
+      "params": [
+        {
+          "enum": null,
+          "key": "text",
+          "kind": "text",
+          "optional": false,
+          "py_name": "text"
+        }
+      ],
+      "source_name": "uppercase"
+    },
+    "url_decode": {
+      "doc": "[URLs] URL Decode: Decode text from URL encoding.",
+      "fixed": {
+        "WFEncodeMode": "Decode"
+      },
+      "identifier": "urlencode",
+      "output": "text",
+      "params": [
+        {
+          "enum": null,
+          "key": "WFInput",
+          "kind": "text",
+          "optional": false,
+          "py_name": "input"
+        }
+      ],
+      "source_name": "urlDecode"
+    },
+    "url_encode": {
+      "doc": "[URLs] URL Encode: Encode text for a URL.",
+      "fixed": {
+        "WFEncodeMode": "Encode"
+      },
+      "identifier": "urlencode",
+      "output": "text",
+      "params": [
+        {
+          "enum": null,
+          "key": "WFInput",
+          "kind": "text",
+          "optional": false,
+          "py_name": "input"
+        }
+      ],
+      "source_name": "urlEncode"
+    },
+    "vibrate": {
+      "doc": "Vibrate Device: Vibrate the device. Only applies to Apple devices with the haptic engine.",
+      "fixed": {},
+      "identifier": "vibrate",
+      "output": null,
+      "params": [],
+      "source_name": "vibrate"
+    },
+    "wait": {
+      "doc": "[Control Flow] Wait: Wait a specified number of seconds.",
+      "fixed": {},
+      "identifier": "delay",
+      "output": null,
+      "params": [
+        {
+          "enum": null,
+          "key": "WFDelayTime",
+          "kind": "number",
+          "optional": false,
+          "py_name": "seconds"
+        }
+      ],
+      "source_name": "wait"
+    },
+    "wait_to_return": {
+      "doc": "[Control Flow] Wait to Return: Wait for the user to return to Shortcuts.",
+      "fixed": {},
+      "identifier": "waittoreturn",
+      "output": null,
+      "params": [],
+      "source_name": "waitToReturn"
+    }
+  },
+  "enums": {
+    "AbcSortOrderValue": [
+      "A to Z",
+      "Z to A"
+    ],
+    "AirdropReceivingStatesValue": [
+      "No One",
+      "Contacts Only",
+      "Everyone"
+    ],
+    "ArchiveFormatValue": [
+      ".zip",
+      ".tar.gz",
+      ".tar.bz2",
+      ".tar.xz",
+      ".tar",
+      ".gz",
+      ".cpio",
+      ".iso"
+    ],
+    "AudioFormatsValue": [
+      "M4A",
+      "AIFF"
+    ],
+    "AudioQualityValue": [
+      "Normal",
+      "Very High"
+    ],
+    "AudioSpeedsValue": [
+      "0.5X",
+      "Normal",
+      "2X"
+    ],
+    "AudioStartValue": [
+      "On Tap",
+      "Immediately"
+    ],
+    "BackgroundSoundValue": [
+      "BalancedNoise",
+      "BrightNoise",
+      "DarkNoise",
+      "Ocean",
+      "Rain",
+      "Stream"
+    ],
+    "CalculationOperationValue": [
+      "x^2",
+      "\u0445^3",
+      "x^\u0443",
+      "e^x",
+      "10^x",
+      "In(x)",
+      "log(x)",
+      "\u221ax",
+      "\u221bx",
+      "x!",
+      "sin(x)",
+      "cos(X)",
+      "tan(x)",
+      "abs(x)"
+    ],
+    "CameraOrientationValue": [
+      "Front",
+      "Back"
+    ],
+    "CellularDetailValue": [
+      "Carrier Name",
+      "Radio Technology",
+      "Country Code",
+      "Is Roaming Abroad",
+      "Number of Signal Bars"
+    ],
+    "ColorSpaceValue": [
+      "RGB",
+      "Gray"
+    ],
+    "ContactDetailValue": [
+      "First Name",
+      "Middle Name",
+      "Last Name",
+      "Birthday",
+      "Prefix",
+      "Suffix",
+      "Nickname",
+      "Phonetic First Name",
+      "Phonetic Last Name",
+      "Phonetic Middle Name",
+      "Company",
+      "Job Title",
+      "Department",
+      "File Extension",
+      "Creation Date",
+      "File Path",
+      "Last Modified Date",
+      "Name",
+      "Random"
+    ],
+    "ConvertImageFormatsValue": [
+      "TIFF",
+      "GIF",
+      "PNG",
+      "BMP",
+      "PDF",
+      "HEIF"
+    ],
+    "CountTypeValue": [
+      "Items",
+      "Characters",
+      "Words",
+      "Sentences",
+      "Lines"
+    ],
+    "CropImagePositionValue": [
+      "Center",
+      "Top Left",
+      "Top Right",
+      "Bottom Left",
+      "Bottom Right",
+      "Custom"
+    ],
+    "CustomImageOverlayPositionValue": [
+      "Center",
+      "Top Left",
+      "Top Right",
+      "Bottom Left",
+      "Bottom Right",
+      "Custom"
+    ],
+    "DateAdjustOperationValue": [
+      "Add",
+      "Subtract",
+      "Get Start of Minute",
+      "Get Start of Hour",
+      "Get Start of Day",
+      "Get Start of Week",
+      "Get Start of Month",
+      "Get Start of Year"
+    ],
+    "DateFormatsValue": [
+      "None",
+      "Short",
+      "Medium",
+      "Long",
+      "Relative",
+      "RFC 2822",
+      "ISO 8601",
+      "Custom"
+    ],
+    "DateUnitValue": [
+      "sec",
+      "min",
+      "hr",
+      "days",
+      "weeks",
+      "months",
+      "yr"
+    ],
+    "DeviceDetailValue": [
+      "Device Name",
+      "Device Hostname",
+      "Device Model",
+      "Device Is Watch",
+      "System Version",
+      "Screen Width",
+      "Screen Height",
+      "Current Volume",
+      "Current Brightness",
+      "Current Appearance"
+    ],
+    "DeviceUsageTypeValue": [
+      "all",
+      "app",
+      "website"
+    ],
+    "EditEventDetailValue": [
+      "Start Date",
+      "End Date",
+      "Is All Day",
+      "Location",
+      "Duration",
+      "My Status",
+      "Attendees",
+      "URL",
+      "Title",
+      "Notes",
+      "Attachments"
+    ],
+    "EncodeVideoSizesValue": [
+      "640\u00d7480",
+      "960\u00d7540",
+      "1280\u00d7720",
+      "1920\u00d71080",
+      "3840\u00d72160",
+      "HEVC 1920\u00d71080",
+      "HEVC 3840x2160",
+      "ProRes 422"
+    ],
+    "EncodeVideoSpeedsValue": [
+      "0.5X",
+      "Normal",
+      "2X"
+    ],
+    "EventDetailValue": [
+      "Start Date",
+      "End Date",
+      "Is All Day",
+      "Calendar",
+      "Location",
+      "Has Alarms",
+      "Duration",
+      "Is Canceled",
+      "My Status",
+      "Organizer",
+      "Organizer Is Me",
+      "Attendees",
+      "Number of Attendees",
+      "URL",
+      "Title",
+      "Notes",
+      "Attachments",
+      "File Size",
+      "File Extension",
+      "Creation Date",
+      "File Path",
+      "Last Modified Date",
+      "Name"
+    ],
+    "EventOccurrenceModeValue": [
+      "Next Occurrence",
+      "Specified Year"
+    ],
+    "FacetimeCallTypeValue": [
+      "Video",
+      "Audio"
+    ],
+    "FileDetailValue": [
+      "File Size",
+      "File Extension",
+      "Creation Date",
+      "File Path",
+      "Last Modified Date",
+      "Name"
+    ],
+    "FileSizeFormatValue": [
+      "Closest Unit",
+      "Bytes",
+      "Kilobytes",
+      "Megabytes",
+      "Gigabytes",
+      "Terabytes",
+      "Petabytes",
+      "Exabytes",
+      "Zettabytes",
+      "Yottabytes"
+    ],
+    "FlipImageDirectionValue": [
+      "Horizontal",
+      "Vertical"
+    ],
+    "FocusUntilValue": [
+      "Turned Off",
+      "Time",
+      "I Leave",
+      "Event Ends"
+    ],
+    "GenerativeResultTypeValue": [
+      "Text",
+      "Number",
+      "Date",
+      "Boolean",
+      "List",
+      "Dictionary"
+    ],
+    "HashTypeValue": [
+      "MD5",
+      "SHA1",
+      "SHA256",
+      "SHA512"
+    ],
+    "HolidayValue": [
+      "April Fools' Day",
+      "Ash Wednesday",
+      "Christmas Day",
+      "Christmas Eve",
+      "Cinco de Mayo",
+      "Columbus Day",
+      "Day of the Dead",
+      "Daylight Saving Time",
+      "Daylight Saving Time End",
+      "Diwali",
+      "Earth Day",
+      "Easter Sunday",
+      "Eid al-Adha",
+      "Eid al-Fitr",
+      "Election Day",
+      "Father's Day",
+      "First Night of Ramadan",
+      "Flag Day",
+      "Good Friday",
+      "Groundhog Day",
+      "Halloween",
+      "Holi",
+      "Inauguration Day",
+      "Independence Day",
+      "Indigenous Peoples' Day",
+      "Juneteenth",
+      "Martin Luther King Jr. Day",
+      "Memorial Day",
+      "Mother's Day",
+      "New Year's Day",
+      "New Year's Eve",
+      "Palm Sunday",
+      "Presidents' Day",
+      "St. Patrick's Day",
+      "Tax Day",
+      "Thanksgiving",
+      "Valentine's Day",
+      "Veterans Day",
+      "Workers' Day"
+    ],
+    "HolidayYearValue": [
+      "2023",
+      "2024",
+      "2025",
+      "2026",
+      "2027"
+    ],
+    "HttpMethodValue": [
+      "POST",
+      "PUT",
+      "PATCH",
+      "DELETE"
+    ],
+    "ImageCombineModeValue": [
+      "Vertically",
+      "In a Grid"
+    ],
+    "ImageDetailValue": [
+      "Album",
+      "Width",
+      "Height",
+      "Date Taken",
+      "Media Type",
+      "Photo Type",
+      "Is a Screenshot",
+      "Is a Screen Recording",
+      "Location",
+      "Duration",
+      "Frame Rate",
+      "Orientation",
+      "Camera Make",
+      "Camera Model",
+      "Metadata Dictionary",
+      "Is Favorite",
+      "File Size",
+      "File Extension",
+      "Creation Date",
+      "File Path",
+      "Last Modified Date",
+      "Name"
+    ],
+    "IpTypesValue": [
+      "IPv4",
+      "IPv6"
+    ],
+    "LanguageValue": [
+      "ar_AE",
+      "zh_CN",
+      "zh_TW",
+      "nl_NL",
+      "en_GB",
+      "en_US",
+      "fr_FR",
+      "de_DE",
+      "id_ID",
+      "it_IT",
+      "jp_JP",
+      "ko_KR",
+      "pl_PL",
+      "pt_BR",
+      "ru_RU",
+      "es_ES",
+      "th_TH",
+      "tr_TR",
+      "vn_VN"
+    ],
+    "LlmModelValue": [
+      "Private Cloud Compute",
+      "Apple Intelligence on Device",
+      "ChatGPT"
+    ],
+    "LocationDetailValue": [
+      "Name",
+      "URL",
+      "Label",
+      "Phone Number",
+      "Region",
+      "ZIP Code",
+      "State",
+      "City",
+      "Street",
+      "Altitude",
+      "Longitude",
+      "Latitude"
+    ],
+    "MaskImageTypeValue": [
+      "Rounded Rectangle",
+      "Ellipse",
+      "Icon"
+    ],
+    "MusicDetailValue": [
+      "Title",
+      "Album",
+      "Artist",
+      "Album Artist",
+      "Genre",
+      "Composer",
+      "Date Added",
+      "Media Kind",
+      "Duration",
+      "Play Count",
+      "Track Number",
+      "Disc Number",
+      "Album Artwork",
+      "Is Explicit",
+      "Lyrics",
+      "Release Date",
+      "Comments",
+      "Is Cloud Item",
+      "Skip Count",
+      "Last Played Date",
+      "Rating",
+      "File Path",
+      "Name"
+    ],
+    "PdfMergeBehaviorsValue": [
+      "Append",
+      "Shuffle"
+    ],
+    "PodcastDetailValue": [
+      "Feed URL",
+      "Genre",
+      "Episode Count",
+      "Artist",
+      "Store ID",
+      "Store URL",
+      "Artwork",
+      "Artwork URL",
+      "Name"
+    ],
+    "QrCodeErrorCorrectionValue": [
+      "Low",
+      "Medium",
+      "Quartile",
+      "High"
+    ],
+    "RecordingStartValue": [
+      "On Tap",
+      "Immediately"
+    ],
+    "RepeatModeValue": [
+      "None",
+      "One",
+      "All"
+    ],
+    "RoundingValue": [
+      "Ones Place",
+      "Tens Place",
+      "Hundreds Place",
+      "Thousands",
+      "Ten Thousands",
+      "Hundred Thousands",
+      "Millions"
+    ],
+    "ScreenshotSelectionValue": [
+      "Window",
+      "Custom"
+    ],
+    "SearchEngineValue": [
+      "Amazon",
+      "Bing",
+      "DuckDuckGo",
+      "eBay",
+      "Google",
+      "Reddit",
+      "Twitter",
+      "Yahoo!",
+      "YouTube"
+    ],
+    "SeekBehaviorValue": [
+      "To Time",
+      "Forward By",
+      "Backward By"
+    ],
+    "ShazamDetailValue": [
+      "Apple Music ID",
+      "Artist",
+      "Title",
+      "Is Explicit",
+      "Lyrics Snippet",
+      "Lyric Snippet Synced",
+      "Artwork",
+      "Video URL",
+      "Shazam URL",
+      "Apple Music URL",
+      "Name"
+    ],
+    "ShortcutDetailValue": [
+      "Folder",
+      "Icon",
+      "Action Count",
+      "File Size",
+      "File Extension Creation Date",
+      "File Path",
+      "Last Modified Date",
+      "Name"
+    ],
+    "ShuffleModeValue": [
+      "Off",
+      "Songs"
+    ],
+    "SoundRecognitionOperationsValue": [
+      "pause",
+      "activate",
+      "toggle"
+    ],
+    "SshScriptAuthTypeValue": [
+      "Password",
+      "SSH Key"
+    ],
+    "StatisticOperationsValue": [
+      "Average",
+      "Minimum",
+      "Maximum",
+      "Sum",
+      "Median",
+      "Mode",
+      "Range",
+      "Standard Deviation"
+    ],
+    "StopListeningTriggerValue": [
+      "After Pause",
+      "After Short Pause",
+      "On Tap"
+    ],
+    "StorageUnitValue": [
+      "bytes",
+      "KB",
+      "MB",
+      "GB",
+      "TB",
+      "PB",
+      "EB",
+      "ZB",
+      "Y"
+    ],
+    "TextSizesValue": [
+      "Accessibility Extra Extra Extra Large",
+      "Accessibility Extra Extra Large",
+      "Accessibility Extra Large",
+      "Accessibility Large",
+      "Accessibility Medium",
+      "Extra Extra Extra Large",
+      "Extra Extra Large",
+      "Extra Large",
+      "Default",
+      "Medium",
+      "Small",
+      "Extra Small"
+    ],
+    "TextToneValue": [
+      "friendly",
+      "professional",
+      "concise"
+    ],
+    "TimeDurationValue": [
+      "hr",
+      "min",
+      "sec"
+    ],
+    "TimeFormatsValue": [
+      "None",
+      "Short",
+      "Medium",
+      "Long",
+      "Relative"
+    ],
+    "UrlDetailValue": [
+      "Scheme",
+      "User",
+      "Password",
+      "Host",
+      "Port",
+      "Path",
+      "Query",
+      "Fragment"
+    ],
+    "UsageDurationValue": [
+      "today",
+      "yesterday",
+      "lastWeek",
+      "thisWeek",
+      "thisMonth",
+      "thisYear",
+      "specifiedDay",
+      "inBetween"
+    ],
+    "VideoQualityValue": [
+      "Low",
+      "Medium",
+      "High"
+    ],
+    "WeatherDetailValue": [
+      "Name",
+      "Air Pollutants",
+      "Air Quality Category",
+      "Air Quality Index",
+      "Sunset Time",
+      "Sunrise Time",
+      "UV Index",
+      "Wind Direction",
+      "Wind Speed",
+      "Precipitation Chance",
+      "Precipitation Amount",
+      "Pressure",
+      "Humidity",
+      "Dewpoint",
+      "Visibility",
+      "Condition",
+      "Feels Like",
+      "Low",
+      "High",
+      "Temperature",
+      "Location",
+      "Date"
+    ],
+    "WeatherForecastTypesValue": [
+      "Daily",
+      "Hourly"
+    ],
+    "WebpageDetailValue": [
+      "Page Contents",
+      "Page Selection",
+      "Page URL",
+      "Name"
+    ],
+    "WifiDetailValue": [
+      "Network Name",
+      "BSSID",
+      "Wi-Fi Standard",
+      "RX Rate",
+      "TX Rate",
+      "RSSI",
+      "Noise",
+      "Channel Number",
+      "Hardware MAC Address"
+    ],
+    "WindowPositionValue": [
+      "Top Left",
+      "Top Center",
+      "Top Right",
+      "Middle Left",
+      "Center",
+      "Middle Right",
+      "Bottom Left",
+      "Bottom Center",
+      "Bottom Right",
+      "Coordinates"
+    ],
+    "WindowSizeValue": [
+      "Fit Screen",
+      "Top Half",
+      "Bottom Half",
+      "Left Half",
+      "Right Half",
+      "Top Left Quarter",
+      "Top Right Quarter",
+      "Bottom Left Quarter",
+      "Bottom Right Quarter",
+      "Dimensions"
+    ]
+  }
+}

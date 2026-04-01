@@ -5,6 +5,8 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
+from .action_catalog import ACTION_SPECS
+
 OBJECT_REPLACEMENT = "\uFFFC"
 DEFAULT_GLYPH = 61440
 DEFAULT_COLOR = 3031607807
@@ -43,6 +45,7 @@ CF_START = 0
 CF_ELSE = 1
 CF_END = 2
 SIGNING_STDERR_NOISE = 'ERROR: Unrecognized attribute string flag \'?\' in attribute string "T@"NSString",?,R,C" for property debugDescription'
+FULL_ACTION_PREFIXES = ("app.", "com.", "dev.", "io.", "is.workflow.actions.", "net.", "org.")
 PAYLOAD_TEMPLATE = dict(WFQuickActionSurfaces=[], WFWorkflowClientVersion=CLIENT_VERSION, WFWorkflowHasOutputFallback=False)
 PAYLOAD_TEMPLATE |= dict(WFWorkflowHasShortcutInputVariables=False, WFWorkflowImportQuestions=[], WFWorkflowMinimumClientVersion=MINIMUM_CLIENT_VERSION)
 PAYLOAD_TEMPLATE |= dict(WFWorkflowMinimumClientVersionString=str(MINIMUM_CLIENT_VERSION), WFWorkflowNoInputBehavior={})
@@ -214,10 +217,25 @@ def clean_signing_stderr(stderr: str | None) -> str:
     return "\n".join(lines) + ("\n" if lines and stderr.endswith("\n") else "")
 
 
+def bind_action_spec(spec: dict[str, Any], args: list["Expr"], kwargs: dict[str, "Expr"]) -> dict[str, "Expr"]:
+    params,bound = spec["params"],{}
+    if len(args) > len(params): raise ValueError("Unsupported argument shape")
+    for param,arg in zip(params, args): bound[param["key"]] = arg
+    for param in params[:len(args)]:
+        if param["py_name"] in kwargs: raise ValueError(f"Multiple values for argument: {param['py_name']}")
+    for param in params[len(args):]:
+        if param["py_name"] in kwargs: bound[param["key"]] = kwargs[param["py_name"]]
+        elif not param["optional"]: raise ValueError(f"Missing required argument: {param['py_name']}")
+    unexpected = set(kwargs) - {o["py_name"] for o in params}
+    if unexpected: raise ValueError(f"Unexpected keyword arguments: {', '.join(sorted(unexpected))}")
+    return bound
+
+
 class Lowerer:
     def __init__(self, filename: str): self.filename = filename
 
     def error(self, message: str, node: ast.AST) -> CompileError: return CompileError(message, node=node, filename=self.filename)
+    def default_shortcut_name(self, name: str) -> str: return " ".join(o[:1].upper() + o[1:] for o in name.split("_") if o) or name
 
     def lower(self, tree: ast.Module) -> ShortcutProgram:
         body = list(tree.body)
@@ -239,18 +257,18 @@ class Lowerer:
         return ShortcutProgram(meta=meta, body=body)
 
     def lower_meta(self, fn: ast.FunctionDef) -> ShortcutMeta:
-        if fn.name != "main": raise self.error("The shortcut entrypoint must be named main", fn)
         if fn.args.args or fn.args.kwonlyargs or fn.args.vararg or fn.args.kwarg: raise self.error("Shortcut functions cannot take parameters", fn)
         if len(fn.decorator_list) != 1: raise self.error("Shortcut functions must have exactly one decorator", fn)
         dec = fn.decorator_list[0]
+        if isinstance(dec, ast.Name) and dec.id == "shortcut": return ShortcutMeta(name=self.default_shortcut_name(fn.name))
         if not isinstance(dec, ast.Call) or not isinstance(dec.func, ast.Name) or dec.func.id != "shortcut":
-            raise self.error("Shortcut functions must be decorated with @shortcut(...)", dec)
+            raise self.error("Shortcut functions must be decorated with @shortcut or @shortcut(...)", dec)
         if dec.args: raise self.error("@shortcut only supports keyword arguments", dec)
         seen = {}
         for kw in dec.keywords:
             if kw.arg is None: raise self.error("@shortcut does not support **kwargs", dec)
             seen[kw.arg] = self.literal_value(kw.value, f"@shortcut {kw.arg}")
-        name = seen.get("name")
+        name = seen.get("name", self.default_shortcut_name(fn.name))
         if not isinstance(name, str) or not name: raise self.error("@shortcut requires a non-empty name=", dec)
         return ShortcutMeta(name=name, color=seen.get("color"), glyph=seen.get("glyph"))
 
@@ -378,6 +396,9 @@ class Lowerer:
             case "raw_action":
                 if not args: raise self.error("raw_action() requires an action identifier", node)
                 if not isinstance(args[0], LiteralExpr) or not isinstance(args[0].value, str): raise self.error("raw_action() requires a string literal action identifier", node)
+            case _ if spec := ACTION_SPECS.get(call.func):
+                try: bind_action_spec(spec, args, kwargs)
+                except ValueError as e: raise self.error(str(e), node) from e
             case "shortcut":
                 raise self.error("shortcut() may only be used as a decorator", node)
             case _:
@@ -542,8 +563,14 @@ class Emitter:
                 ident = call.args[0]
                 assert isinstance(ident, LiteralExpr) and isinstance(ident.value, str)
                 params = {k: self.raw_value(v) for k,v in call.kwargs.items()}
-                action_id = ident.value if "." in ident.value else f"is.workflow.actions.{ident.value}"
-                return self.emit_action_value(action_id, params, want_result, hint or self.short_name(action_id))
+                return self.emit_action_value(ident.value, params, want_result, hint or self.short_name(ident.value))
+            case _ if spec := ACTION_SPECS.get(call.func):
+                bound = bind_action_spec(spec, call.args, call.kwargs)
+                params = dict(spec["fixed"])
+                for param in spec["params"]:
+                    if param["key"] not in bound: continue
+                    params[param["key"]] = self.encode_action_param(bound[param["key"]], param["kind"])
+                return self.emit_action_value(spec["identifier"], params, want_result, hint or call.func.replace("_", " ").title())
         raise ValueError(f"Unsupported call: {call.func}")
 
     def emit_action_value(self, ident: str, params: dict[str, Any], want_result: bool, hint: str) -> Ref | None:
@@ -560,7 +587,7 @@ class Emitter:
         return Ref("action_output", output_name, output_uuid)
 
     def add_action(self, ident: str, params: dict[str, Any]) -> None:
-        if "." not in ident: ident = f"is.workflow.actions.{ident}"
+        if not ident.startswith(FULL_ACTION_PREFIXES): ident = f"is.workflow.actions.{ident}"
         self.actions.append({"WFWorkflowActionIdentifier": ident, "WFWorkflowActionParameters": params})
 
     def next_output_name(self, base: str) -> str:
@@ -636,6 +663,11 @@ class Emitter:
 
     def text_token(self, value: str) -> dict[str, Any]:
         return {"Value": {"string": value}, "WFSerializationType": "WFTextTokenString"}
+
+    def encode_action_param(self, expr: Expr, kind: str) -> Any:
+        if kind == "variable": return self.attachment(self.eval_expr(expr))
+        if kind in {"rawtext", "text"}: return self.text_value(expr)
+        return self.raw_value(expr)
 
     def raw_value(self, expr: Expr) -> Any:
         match expr:

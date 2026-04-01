@@ -58,6 +58,32 @@ def main():
     assert artifact.payload["WFWorkflowActions"][-1]["WFWorkflowActionIdentifier"] == "is.workflow.actions.output"
 
 
+def test_bare_shortcut_uses_function_name():
+    src = """
+from shortcutpy.dsl import shortcut, show_result
+
+@shortcut
+def hello_world():
+    show_result("hi")
+"""
+    artifact = compile_source(src, filename="hello.py")
+    assert artifact.program.meta.name == "Hello World"
+    assert artifact.payload["WFWorkflowActions"][-1]["WFWorkflowActionIdentifier"] == "is.workflow.actions.showresult"
+
+
+def test_shortcut_name_defaults_when_omitted():
+    src = """
+from shortcutpy.dsl import shortcut, show_result
+
+@shortcut(color="yellow")
+def get_current_weather():
+    show_result("hi")
+"""
+    artifact = compile_source(src, filename="weather.py")
+    assert artifact.program.meta.name == "Get Current Weather"
+    assert artifact.program.meta.color == "yellow"
+
+
 def test_compile_file_signs_via_shortcuts(monkeypatch, tmp_path):
     calls = []
 

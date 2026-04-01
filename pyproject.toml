@@ -38,4 +38,4 @@ packages = ["shortcutpy"]
 version = { attr = "shortcutpy.__version__" }
 
 [tool.setuptools.package-data]
-shortcutpy = ["*.pyi", "py.typed"]
+shortcutpy = ["*.json", "*.pyi", "py.typed"]

@@ -10,9 +10,11 @@
 ## Key Files
 
 - [shortcutpy/compiler.py](/Users/jhoward/git/shortcutpy/shortcutpy/compiler.py): parser/lowerer/emitter/signing path
+- [shortcutpy/action_catalog.py](/Users/jhoward/git/shortcutpy/shortcutpy/action_catalog.py): generated action registry from Cherri
 - [shortcutpy/dsl.py](/Users/jhoward/git/shortcutpy/shortcutpy/dsl.py): runtime stubs for the DSL surface
 - [shortcutpy/dsl.pyi](/Users/jhoward/git/shortcutpy/shortcutpy/dsl.pyi): typing for the DSL
 - [shortcutpy/cli.py](/Users/jhoward/git/shortcutpy/shortcutpy/cli.py): `shortcutpy ...`
+- [scripts/sync_cherri_actions.py](/Users/jhoward/git/shortcutpy/scripts/sync_cherri_actions.py): regenerate the Cherri-derived action catalog and `.pyi`
 - [tests/test_compiler.py](/Users/jhoward/git/shortcutpy/tests/test_compiler.py): focused compiler/signing tests
 
 ## Compiler Shape
@@ -24,6 +26,8 @@
 - enforce the MVP language subset
 - convert Python AST into a simpler IR (`Assign`, `IfStmt`, `RepeatEach`, `CallExpr`, and so on)
 
+The shortcut entrypoint can have any function name. `@shortcut` with no `(...)` uses that function name as the shortcut name after converting `snake_case` to spaced words.
+
 This keeps AST weirdness out of emission. If you're adding syntax, it usually belongs here first.
 
 `Emitter` turns that IR into the plist structure Shortcuts expects. The main thing to keep in mind is that Shortcuts values are often references, not raw values:
@@ -33,6 +37,18 @@ This keeps AST weirdness out of emission. If you're adding syntax, it usually be
 - text interpolation uses `WFTextTokenString` attachments
 
 `Ref` is the glue for that. If a new action returns a value, make sure it returns the right kind of `Ref`.
+
+## Generated Action Surface
+
+Most of `shortcutpy.dsl` is now generated from Cherri's action catalog.
+
+- `scripts/sync_cherri_actions.py` parses `cherri/actions/*.cherri`
+- it writes [shortcutpy/action_catalog.py](/Users/jhoward/git/shortcutpy/shortcutpy/action_catalog.py)
+- it also regenerates [shortcutpy/dsl.pyi](/Users/jhoward/git/shortcutpy/shortcutpy/dsl.pyi)
+
+`dsl.py` creates runtime stubs from that catalog, and `compiler.py` uses the same registry to validate calls and map Python arguments to Shortcut parameter keys.
+
+The intent is simple: one source of truth for names, parameter lists, fixed params, and docs.
 
 ## Signing
 
@@ -49,12 +65,12 @@ If signing fails while hacking from Codex, the first thing to suspect is sandbox
 
 For most new actions, the loop is:
 
-1. Add the runtime stub in [shortcutpy/dsl.py](/Users/jhoward/git/shortcutpy/shortcutpy/dsl.py) and typing in [shortcutpy/dsl.pyi](/Users/jhoward/git/shortcutpy/shortcutpy/dsl.pyi).
-2. Validate its argument shape in `Lowerer.validate_call()`.
-3. Emit the action in `Emitter.emit_call()`.
-4. Add a small test in [tests/test_compiler.py](/Users/jhoward/git/shortcutpy/tests/test_compiler.py).
+1. Update or extend [scripts/sync_cherri_actions.py](/Users/jhoward/git/shortcutpy/scripts/sync_cherri_actions.py) if the Cherri syntax shape changed.
+2. Regenerate the catalog and stubs.
+3. If the action needs special lowering beyond the generated path, add that in `compiler.py`.
+4. Add a small test in [tests/test_generated_actions.py](/Users/jhoward/git/shortcutpy/tests/test_generated_actions.py) or [tests/test_compiler.py](/Users/jhoward/git/shortcutpy/tests/test_compiler.py).
 
-Keep it direct. Most actions only need parameter shaping plus either `emit_action_value()` or `add_action()`.
+Keep it direct. Most actions should flow through the generated catalog without any hand-written compiler code.
 
 ## Useful Commands
 
